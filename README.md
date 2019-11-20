@@ -1,6 +1,6 @@
-# Book
+# Workflow
 
-This repository contains the source for the book [Book](https://dcl-book.stanford.edu).
+This repository contains the source for the book [Workflow](https://dcl-workflow.stanford.edu).
 
 We welcome suggestions for improvements.
 
