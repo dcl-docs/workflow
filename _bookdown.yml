@@ -3,6 +3,15 @@ delete_merged_file: true
 
 rmd_files: [
   "index.Rmd",
+  "documentation.Rmd",
+  "learning-more.Rmd",
+  "rstudio-snippets.Rmd",
+  "project-workflow.Rmd",
+  "getting-help.Rmd",
+  "pull-requests.Rmd",
+  "remote-computing.Rmd",
+  "rscripts-remote.Rmd",
+  "style-guide.Rmd",
   "references.Rmd"
 ]
 
