@@ -6,7 +6,6 @@ knitr::opts_chunk$set(eval = FALSE)
 library(tidyverse)
 ```
 
-
 # Style guide
 
 This style guide will introduce you to the style used in the Data Challenge Lab. It expands on the style introduced in the [tidyverse style guide](https://style.tidyverse.org/index.html).
