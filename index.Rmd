@@ -1,6 +1,6 @@
 ---
 knitr: bookdown::render_book
-title: "Book"
+title: "Workflow"
 author: "Sara Altman, Bill Behrman"
 date: "`r Sys.Date()`"
 description: "A collection of readings on data science workflow."

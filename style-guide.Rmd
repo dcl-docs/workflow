@@ -12,11 +12,11 @@ This style guide will introduce you to the style used in the Data Challenge Lab.
 
 ## Why does style matter?
 
-Style guides can seem like a list of arbitrary, pointless rules, but code style does matter. Good, consistent code style makes your code easier to read. 
+Style guides can seem like a list of arbitrary, pointless rules, but code style does matter. 
 
-You will rarely write code and then never look at it again. You will also rarely recall exactly what a chunk of code does without reading it again. Good, consistent code style makes it easier for Future You to read and understand code you write. It also makes it easier for others to read and understand your code. 
+Code with good, consistent code style is much easier to read and understand, making it easier for others---including your future self---to figure out what a bit of code accomplishes. You'll rarely recall exactly what a chunk of code does without reading it again, so think of good code style like a gift to Future You from Present You. 
 
-If your code is easier to read, you will also have an easier time identifying and fixing bugs. We've found that people who improve their good style tend to have fewer bugs. 
+If your code is easier to read, you'll also have an easier time identifying and fixing bugs. We've found that people who improve their good style tend to have fewer bugs. 
 
 ## Style helpers
 
@@ -225,18 +225,18 @@ data %>%
   )
 ```
 
-* Sometimes, just putting the arguments on their own lines won't solve the length problem. In these cases, a complicated indenting schemes is required. Here are some examples.
+* Sometimes, just putting the arguments on their own lines won't solve the length problem. In these cases, a more complicated indenting scheme is required. In the next section, we'll walk through this scheme in more detail. For now, here are some examples.
 
 ```{r}
 # Bad
 data %>% 
-  mutate(var = fun(arg1 = "something", arg2 = "something else", arg3 = "another thing"))
+  mutate(var = complicated_fun(arg1 = "something", arg2 = "something else", arg3 = "another thing"))
 
 # Good
 data %>% 
   mutate(
     var = 
-      fun(
+      complicated_fun(
         arg1 = "something", 
         arg2 = "something else", 
         arg3 = "another thing"
@@ -266,42 +266,50 @@ df %>%
 
 ## An example
 
-Indentation can get confusing. Here, we'll walk through an example.
+The indentation scheme introduced above can be confusing. Here, we'll walk through an example so you can it in action.
 
 ```{r}
 # Bad
 data %>% 
-  mutate(var = fun(arg1 = "something", arg2 = "something else", arg3 = "another thing"))
+  mutate(var = complicated_fun(arg1 = "something", arg2 = "something else", arg3 = "another thing"))
 ```
 
-Step 1: put the contents of the verb on its own line.
+__Step 1__
+
+Put the contents of the verb on its own line. 
 
 ```{r}
 data %>% 
   mutate(
-    var = fun(arg1 = "something", arg2 = "something else", arg3 = "another thing")
+    var = complicated_fun(arg1 = "something", arg2 = "something else", arg3 = "another thing")
   )
 ```
 
-Sometimes, that will solve the problem. In this case, the code still exceeds 80 characters.
+If none of the code goes over the 80-character line, you're done! In this case, the code still exceeds 80 characters, so we'll need to proceed to __Step 2__.
 
-Step 2: add a newline after the "=". 
+__Step 2__
+
+Add a newline after the "=". 
 
 ```{r}
 data %>% 
   mutate(
     var = 
-      fun(arg1 = "something", arg2 = "something else", arg3 = "another thing")
+      complicated_fun(arg1 = "something", arg2 = "something else", arg3 = "another thing")
   )
 ```
 
-All lines of code are now under 80 characters, but there will be cases when the code still exceeds the margin. There are also cases in which you'll want to put each of `fun()`'s arguments on its own line. Functions that should usually have each argument on its own line include `if_else()`, `recode()`, and `case_when()`.
+Again, if none of the code goes over the line, you're done. Our code still surpasses 80-characters, so we'll head to __Step 3__.
+
+__Step 3__
+
+Give each function argument its own line.
 
 ```{r}
 data %>% 
   mutate(
     var = 
-      recode(
+      complicated_fun(
         arg1 = "something", 
         arg2 = "something else", 
         arg3 = "another thing"
@@ -309,4 +317,27 @@ data %>%
   )
 ```
 
-Always remember to line up the closing parenthesis with the start of the function name. You can always check your indenting by highlighting the code and doing Cmd/Ctrl + I.
+Now, everything is under 80 characters and the code is easy to read. 
+
+There are also situations where you'll want to put each function argument on its own line even if the code doesn't extend past 80 characters. functions that should usually have each argument on its own line include `if_else()`, `recode()`, and `case_when()`.
+
+```{r}
+# Not great
+data %>% 
+  mutate(
+    var = recode(v1 = "something", v2 = "something else", v3 = "another thing")
+  )
+
+# Better
+data %>% 
+  mutate(
+    var = 
+      recode(
+        v1 = "something", 
+        v2 = "something else", 
+        v3 = "another thing"
+      )
+  )
+```
+
+Remember to line up the closing parenthesis with the start of the function name. You can always check your indenting by highlighting the code and doing Cmd/Ctrl + I.
