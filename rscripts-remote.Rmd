@@ -45,7 +45,7 @@ Now, we'll create aliases for logging into Kerberos and rice. Aliases live in yo
 
 Now, add the following line to the alias section of your .bash_profile. We recommend listing your aliases in alphabetical order.
 
-`alias k='kinit [SUNet ID] 
+`alias k='kinit [SUNet ID]'`
 
 This creates an alias for logging into Kerberos. The `k` is for Kerberos.
 

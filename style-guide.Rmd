@@ -14,19 +14,17 @@ This style guide will introduce you to the style used in the Data Challenge Lab.
 
 Style guides can seem like a list of arbitrary, pointless rules, but code style does matter. 
 
-Code with good, consistent code style is much easier to read and understand, making it easier for others---including your future self---to figure out what a bit of code accomplishes. You'll rarely recall exactly what a chunk of code does without reading it again, so think of good code style like a gift to Future You from Present You. 
-
-If your code is easier to read, you'll also have an easier time identifying and fixing bugs. We've found that people who improve their good style tend to have fewer bugs. 
+Good, consistent style makes code much easier to read, helping others---including your future self---understand what a bit of code is trying to accomplish. You'll rarely recall exactly what code does without reading it again, so think of good code style like a gift to Future You from Present You. Also, the clearer and simpler your code is, the easier it will to identify and fix bugs. 
 
 ## Style helpers
 
 RStudio includes several features that will help you practice good style. These include:
 
 * 80-character margin
-    - Go to Tools > Global Options > Code > Display, check _Show Margin_, and make sure that _Column margin_ is set to 80. This turns on a line in all files that marks the 80-character cutoff. As you'll see, you never want a line of code to exceed 80-characters.
+    - Go to _Tools_ > _Global Options_ > _Code_ > _Display_, check _Show Margin_, and make sure that _Column margin_ is set to 80. This turns on a line in all files that marks the 80-character cutoff. As you'll see, you never want a line of code to exceed 80-characters.
     - The lower lefthand corner of the RStudio editor also displays the row:column numbers. The column number gives the _next_ position, so you're OK if it says 81.
 * Style diagnostics
-    - Go to Tools > Global Options > Code > Diagnostics and check _Provide R style diagnostics_. This turns on a feature that will tell you if you've violated some simple style rules. This tool will underline your bad code with a blue squiggle and put a blue "i" icon in the lefthand margin. Hover over the "i" to see the issue.
+    - Go to _Tools_ > _Global Options_ > _Code_ > _Diagnostics_ and check _Provide R style diagnostics_. This turns on a feature that will tell you if you've violated some simple style rules. This tool will underline your bad code with a blue squiggle and put a blue _i_ icon in the lefthand margin. Hover over the _i_ to see the issue.
 * Indentation fixer
     - Cmd/Ctrl + I fixes some indentation issues. Highlight the code and press Cmd/Ctrl + I.
 
@@ -264,7 +262,7 @@ df %>%
   geom_col()
 ```
 
-## An example
+## An indentation example
 
 The indentation scheme introduced above can be confusing. Here, we'll walk through an example so you can it in action.
 
