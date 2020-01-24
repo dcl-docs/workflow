@@ -15,4 +15,4 @@ knitr::opts_chunk$set(
 )
 
 image_dpi <- 125
-image_dpi_small <- 500
+image_dpi_small <- 450

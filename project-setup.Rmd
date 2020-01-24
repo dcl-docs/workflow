@@ -1,0 +1,189 @@
+
+# Setup
+
+## Create a project
+
+We recommend creating one directory for each project. All your data and files for your project will live in this one directory. You'll also often want to create an RStudio project for your project. 
+
+Ideally, you'll organize your files in this directory in a principled way. We've created a project template with our suggested folder organization. You can quickly create a project that uses this template with the dcl package. 
+
+If you haven't already, install the dcl package:
+
+```{r, eval=FALSE}
+# install.packages("devtools")
+devtools::install_github("stanford-datalab/dcl")
+```
+
+Now, you can run
+
+`dcl::create_data_project(path = "MY/PROJECT/PATH")`
+
+to create a directory at your supplied `path` with the following files and directories:
+
+* __data__: cleaned data
+* __data-raw__: raw data
+* __docs__: data documentation and notes
+* __eda__: exploratory data analysis on your cleaned data
+* __scripts__: data-cleaning scripts
+* __reports__: findings to present to others
+* __Makefile__
+* __.gitignore__
+* __README.md__
+
+We'll discuss how to use these directories and files in the [next chapter](https://dcl-workflow.stanford.edu/organization.html).
+
+By default, `dcl::create_data_project()` creates an RStudio project for the directory. If you don't want to create an RStudio project, set the `project` argument to `FALSE`:
+
+```{r eval=FALSE}
+dcl::create_data_project(path = "PROJECT/PATH", project = FALSE)
+```
+
+Note that it's generally a bad idea to nest RStudio projects. If you find yourself wanting to use our folder organization inside a different RStudio project, you'll probably want `project = FALSE`. 
+
+`dcl::create_data_project()` will print out a series of messages to the console that will look something like:
+
+```{r echo=FALSE, out.height='40%'}
+knitr::include_graphics(
+  "images/project-workflow/console-messages.png", dpi = image_dpi
+)
+```
+
+These messages tell you what files and sub-directories are being written to your new project directory. If `project = TRUE`, the messages will also tell you about the creation of the project. 
+
+## Setup GitHub
+
+We recommend using GitHub for all your data work. Generally, you'll want one repository per project. 
+
+Here, we'll explain how to setup git and GitHub for your newly created project. Note that this is a different workflow than you might have used in the past--instead of creating a repository on GitHub and then cloning it, we created a local directory first, and now want to create a corresponding GitHub repository. 
+
+The following steps will only work if you set `project = TRUE` in the previous section because they require a .Rproj file. However, if you didn't want an RStudio project for your project, you probably also don't want a GitHub repository for it either. 
+
+### GitHub token
+
+You will need a GitHub personal access token in order to setup git and GitHub from RStudio. Open [GitHub](http://github.com/) in your browser. Then:
+
+* Click on your profile picture in the upper righthand corner, then click on _Settings_.
+
+```{r echo=FALSE}
+knitr::include_graphics(
+  "images/project-workflow/github-pat-1.png", 
+  dpi = image_dpi_small
+)
+```
+
+* Then, go to _Developer Settings_ > _Personal access tokens_.
+* Click _Generate new token_.
+
+```{r echo=FALSE}
+knitr::include_graphics(
+  "images/project-workflow/github-pat-2.png", 
+  dpi = image_dpi_small
+)
+```
+
+* Name your token something like _RStudio_ or _R_. The name doesn't really matter--it's just a way to keep track of your different tokens. Under _Scopes_, select _repo_ (you'll only need the repo scope for this chpater, but you can select other scopes if you anticipate using the GitHub API in more scenarios.)
+
+```{r echo=FALSE}
+knitr::include_graphics(
+  "images/project-workflow/github-pat-3.png", 
+  dpi = image_dpi_small
+)
+```
+
+* Scroll down to the bottom, then click _Generate token_.
+
+```{r echo=FALSE}
+knitr::include_graphics(
+  "images/project-workflow/github-pat-4.png", 
+  dpi = image_dpi_small
+)
+```
+
+* Copy the resulting token to your clipboard and return to RStudio.
+* From the RStudio console, open your .Renviron with
+
+```{r eval=FALSE}
+usethis::edit_r_environ()
+```
+
+* Add the following line to your .Renviron, replacing `YOUR_TOKEN` with the token you copied earlier.
+
+```{r eval=FALSE}
+GITHUB_PAT=YOUR_TOKEN
+```
+
+* Restart R (_Cmd/Ctrl_ + _Shift_ + _F10_). 
+
+### `use_git()`
+
+Now, we can create a git repository for your project. 
+
+If you haven't already, open your project in RStudio. Then, in the console, run
+
+```{r eval=FALSE}
+usethis::use_git()
+```
+
+`use_git()` will set up a Git repository for your project, then ask you if you want to make an initial commit:
+
+```{r echo=FALSE}
+knitr::include_graphics(
+  "images/project-workflow/use-git-1.png", 
+  dpi = image_dpi_small
+)
+```
+
+Enter the number that corresponds to the _Yes_ option. Here, that's `3`, but it might be different for you.
+
+Next, you'll be prompted to restart RStudio:
+
+```{r echo=FALSE}
+knitr::include_graphics(
+  "images/project-workflow/use-git-2.png", 
+  dpi = image_dpi_small
+)
+```
+
+Again, select the _Yes_ option. 
+
+### `use_github()`
+
+`use_git()` initializes a git repository, but you'll still need to connect that repository to GitHub. To do so, run
+
+```{r eval=FALSE}
+usethis::use_github()
+```
+
+Note that `use_github()` has multiple optional arguments that allow you to, for example, create the repository under an organization or make the repository private. 
+
+You'll be prompted for a git protocol. You'll probably want ssh.
+
+```{r echo=FALSE}
+knitr::include_graphics(
+  "images/project-workflow/use-github-1.png", 
+  dpi = image_dpi_small
+)
+```
+
+Next, you'll be prompted to verify the repository name and description. Say _Yes_ unless you're unhappy with them (although note that you can always change them later).
+
+You might get the following error:
+
+```{r echo=FALSE}
+knitr::include_graphics(
+  "images/project-workflow/use-github-2.png", 
+  dpi = image_dpi_small
+)
+```
+
+* If so, copy the recommended command.
+
+```
+git push --set-upstream origin master
+```
+
+* Then, open Terminal, navigate to your project directory, paste in your copied command, and press enter. This command sets the default location to which `git push` will push. 
+
+* Earlier, `use_github()` opened your GitHub repository in the browser. To see the result of your push, refresh the page. Your files should appear. 
+
+Your setup is complete! In the next chapter, we'll go into more detail about how to use the folders and Makefile created by `dcl::create_data_project()`. 
