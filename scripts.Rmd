@@ -79,7 +79,8 @@ file_raw %>%
 ```
 
 This script reads in data from `file_raw`, does some light manipulation, and then writes out the files to `file_out`. 
-You can run R script code with the same keyboard shortcuts you use to run code in chunks ( _Cmd_ + _Enter_ to run one pipe; _Cmd_ + _Shift_ + _Enter_ to run all code; highlight and _Cmd_ + _Enter_ to just run highlighted code). You can also run the whole script by clicking _Source_ in the upper-right corner. 
+
+You can run your whole script by clicking _Source_ in the upper-right corner, but you can also run R script code with all the same keyboard shortcuts you use to run code in R Markdown chunks. 
 
 You can also run your script from the command line. Open Terminal, navigate to your script's directory, then run
 

@@ -3,11 +3,9 @@
 
 ## Create a project
 
-We recommend creating one directory for each project. All your data and files for your project will live in this one directory. You'll also often want to create an RStudio project for your project. 
+We recommend creating one directory for each project. All your data and files for your project will live in this one directory. 
 
-Ideally, you'll organize your files in this directory in a principled way. We've created a project template with our suggested folder organization. You can quickly create a project that uses this template with the dcl package. 
-
-If you haven't already, install the dcl package:
+Ideally, you'll organize your files in this directory in a principled way. We've created a project template with our suggested folder organization. If you haven't already, install the dcl package:
 
 ```{r, eval=FALSE}
 # install.packages("devtools")
@@ -40,23 +38,11 @@ dcl::create_data_project(path = "PROJECT/PATH", project = FALSE)
 
 Note that it's generally a bad idea to nest RStudio projects. If you find yourself wanting to use our folder organization inside a different RStudio project, you'll probably want `project = FALSE`. 
 
-`dcl::create_data_project()` will print out a series of messages to the console that will look something like:
-
-```{r echo=FALSE, out.height='40%'}
-knitr::include_graphics(
-  "images/project-workflow/console-messages.png", dpi = image_dpi
-)
-```
-
-These messages tell you what files and sub-directories are being written to your new project directory. If `project = TRUE`, the messages will also tell you about the creation of the project. 
-
 ## Setup GitHub
 
 We recommend using GitHub for all your data work. Generally, you'll want one repository per project. 
 
-Here, we'll explain how to setup git and GitHub for your newly created project. Note that this is a different workflow than you might have used in the past--instead of creating a repository on GitHub and then cloning it, we created a local directory first, and now want to create a corresponding GitHub repository. 
-
-The following steps will only work if you set `project = TRUE` in the previous section because they require a .Rproj file. However, if you didn't want an RStudio project for your project, you probably also don't want a GitHub repository for it either. 
+Here, we'll explain how to setup git and GitHub for your new project. The following steps will only work if you set `project = TRUE` in the previous section (they require a .Rproj file). However, if you didn't want an RStudio project for your project, you likely also don't want a GitHub repository. 
 
 ### GitHub token
 
@@ -81,7 +67,7 @@ knitr::include_graphics(
 )
 ```
 
-* Name your token something like _RStudio_ or _R_. The name doesn't really matter--it's just a way to keep track of your different tokens. Under _Scopes_, select _repo_ (you'll only need the repo scope for this chpater, but you can select other scopes if you anticipate using the GitHub API in more scenarios.)
+* Name your token something like _RStudio_ or _R_. Under _Scopes_, select _repo_ (You can select other scopes if you anticipate using the GitHub API in more scenarios.)
 
 ```{r echo=FALSE}
 knitr::include_graphics(
@@ -135,16 +121,7 @@ knitr::include_graphics(
 
 Enter the number that corresponds to the _Yes_ option. Here, that's `3`, but it might be different for you.
 
-Next, you'll be prompted to restart RStudio:
-
-```{r echo=FALSE}
-knitr::include_graphics(
-  "images/project-workflow/use-git-2.png", 
-  dpi = image_dpi_small
-)
-```
-
-Again, select the _Yes_ option. 
+Next, you'll be prompted to restart RStudio. Select the _Yes_ option.
 
 ### `use_github()`
 
@@ -186,4 +163,4 @@ git push --set-upstream origin master
 
 * Earlier, `use_github()` opened your GitHub repository in the browser. To see the result of your push, refresh the page. Your files should appear. 
 
-Your setup is complete! In the next chapter, we'll go into more detail about how to use the folders and Makefile created by `dcl::create_data_project()`. 
+Your setup is complete! In the next chapter, we'll go into more detail about how to use the folders and makefile created by `dcl::create_data_project()`. 

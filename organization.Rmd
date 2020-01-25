@@ -1,3 +1,23 @@
+```{r include=FALSE, cache=FALSE}
+set.seed(858)
+
+options(
+  digits = 3,
+  dplyr.print_max = 6,
+  dplyr.print_min = 6
+)
+
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.align = 'center',
+  fig.asp = 0.618,  # 1 / phi
+  fig.show = "hold"
+)
+
+image_dpi <- 125
+image_dpi_small <- 325
+```
 
 # Organization
 
@@ -31,7 +51,7 @@ Data-cleaning scripts belong in __scripts__. We'll talk more about R scripts in 
 
 Create one script for each raw data source. Each script should read in a raw data file, process it, and then write the cleaned data to a .rds file in __data__. 
 
-Name each script the same name as the raw data source. For example, the script __collisions.R__ reads in __collisions.csv__, cleans the data, then writes _col lions.rds_ to __data__ using `readr::write_rds()`. 
+Name each script the same name as the raw data source. For example, the script __collisions.R__ reads in __collisions.csv__, cleans the data, then writes _collisions.rds_ to __data__ using `readr::write_rds()`. 
 
 If you want to join multiple data sources, create an additional script that joins the cleaned data files. For example, __bird_collisions_light.R__ joins __birds.rds__, __collisions.rds__, and __light_mp.rds__, and writes to __bird_collisions_light.rds__. As the diagram points out, your joining scripts can join cleaned data from __data__. 
   
@@ -60,11 +80,9 @@ __reports__ is for your final reports, share-able analysis, etc. The files here 
 
 ## File paths
 
-Say you want to give the file path for __collisions.csv__ in __collisions.R__. You could give the file path relative to the scripts folder: `"../data-raw/collisions.csv"`. However, this will only work if you set your working directory to the __scripts__ folder every time you run your script. It also means you have to think about where folders are located relative to each other.
-
 The [here package](https://here.r-lib.org/) simplifies the work of specifying file paths. The function `here::here()` allows you to specify a file path relative to the directory of your .Rproj file, no matter what folder you're in. For example, no matter where you are in your project, you can give the file path of __collisions.csv__ as `here::here("data-raw/collisions.csv")`. 
 
-See the example [scripts](https://github.com/dcl-docs/project-example/tree/master/scripts), [EDA documents](https://github.com/dcl-docs/project-example/tree/master/eda), and [reports](https://github.com/dcl-docs/project-example/tree/master/reports) for more examples.
+See the our [scripts](https://github.com/dcl-docs/project-example/tree/master/scripts), [EDA documents](https://github.com/dcl-docs/project-example/tree/master/eda), and [reports](https://github.com/dcl-docs/project-example/tree/master/reports) for more examples.
 
 ## R Markdown template
 
@@ -81,19 +99,19 @@ Our template is similar to the default GitHub document template, but:
 
 ## Make
 
-Imagine that __birds.txt__, our example raw data set, gets updated. Maybe the original owners added new birds or corrected a mistake that they noticed. The cleaned birds data, __birds.rds__, depends on __birds.txt__, as do other data files, EDA documents, etc. 
+Imagine that __birds.txt__, our example raw data set, gets updated. Maybe the original owners added new birds or corrected a mistake. The cleaned birds data, __birds.rds__, depends on __birds.txt__, as do other data files, EDA documents, and reports. 
 
 To update all these files, we could rerun all our scripts, then re-knit all our EDA files and reports. However, manually updating all our files can get tedious. It also requires remembering which files depend on each other, which can get complicated. 
 
-_Makefiles_ are a better way to keep track of dependencies and update files when there are changes. You can use a makefile to specify files dependencies, as well as what to do when files change.  
-
-Makefiles are read by a program called Make. Make looks for changes in the files specified in the makefile. Then, it rebuilds the files that depend on the files that changed, based on the dependency structure given in the makefile. 
+_Makefiles_ are a better way to update files and keep track of dependencies. A program called Make reads your makefile, looks for changes in the files specifies, then rebuilds all files that depend on the ones that changed. 
 
 [GNU Make](https://www.gnu.org/software/make/) is free software and comes installed on Macs and most Unix machines. If you're a Windows user, you might need to install Make yourself. 
 
 ### Create a makefile
 
-`dcl::create_data_project()` creates a makefile template for you, but you'll still need to fill it the details once your understand how your files are structured. We'll use our the [makefile](https://github.com/dcl-docs/project-example/blob/master/Makefile) from the birds project as an example. 
+`dcl::create_data_project()` creates a makefile template for you, but you'll still need to fill in the details. We'll use our [makefile](https://github.com/dcl-docs/project-example/blob/master/Makefile) from the birds project as an example. 
+
+Note that this section will be most informative if you have our makefile template in front of you and are ready to fill it in. 
 
 If you want to learn more about makefiles, the [GNU Make manual](https://www.gnu.org/software/make/manual/) is a good reference.
 
@@ -155,7 +173,7 @@ Your files can have any number of dependencies, but make sure to separate the de
 
 #### Rules
 
-Finally, you need to tell Make how to update different types of files. We want Make to run a script if raw data changes, but knit an R Markdown document if cleaned data changes. Lines 30-33 define our rules. 
+Finally, Make needs to know how to update different types of files. We want Make to run a script if raw data changes, but knit an R Markdown document if cleaned data changes. Lines 30-33 define our rules. 
 
 You probably won't need to update these rules, but it's useful to understand them. 
 
@@ -165,10 +183,10 @@ The second rule (32-33) tells Make how to update a .md file. The rule tells Make
 
 ### Run Make
 
-Once you've set up your makefile (and have the necessary files in place), navigate to your project directory from the command line. Then, type `make` and hit enter. Your scripts should run and your files should knit. After `make` is done, try running `make` again. You get a message saying
+Once you've set up your makefile (and have the necessary files in place), navigate to your project directory from the command line. Then, type `make` and hit enter. Your scripts should run and your files should knit. After `make` is done, try running `make` again. You'll get a message saying
 
-`make: Nothing to be done for `all'.`
+`make: Nothing to be done for 'all'.`
 
-because nothing has changed since the last time make ran.
+because nothing has changed since the last time Make ran.
 
-Now, you can just run `make` from the command line every time you want to rebuild your project, suspect something has changed, or have resumed work again. Your files will automatically be kept up-to-date. 
+Now, you can run `make` from the command line every time you want to rebuild your project, suspect something has changed, or have resumed work again. Your files will automatically be kept up-to-date. 
