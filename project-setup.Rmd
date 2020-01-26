@@ -8,21 +8,23 @@ We recommend creating one directory for each project. All your data and files fo
 Ideally, you'll organize your files in this directory in a principled way. We've created a project template with our suggested folder organization. If you haven't already, install the dcl package:
 
 ```{r, eval=FALSE}
-# install.packages("devtools")
-devtools::install_github("stanford-datalab/dcl")
+# install.packages("remotes")
+remotes::install_github("stanford-datalab/dcl")
 ```
 
 Now, you can run
 
-`dcl::create_data_project(path = "MY/PROJECT/PATH")`
+```{r eval=FALSE}
+dcl::create_data_project(path = "PATH/TO/PROJECT")
+```
 
-to create a directory at your supplied `path` with the following files and directories:
+to create a directory at your supplied path with the following files and directories:
 
 * __data__: cleaned data
 * __data-raw__: raw data
 * __docs__: data documentation and notes
 * __eda__: exploratory data analysis on your cleaned data
-* __scripts__: data-cleaning scripts
+* __scripts__: data-manipulation scripts
 * __reports__: findings to present to others
 * __Makefile__
 * __.gitignore__
@@ -33,7 +35,7 @@ We'll discuss how to use these directories and files in the [next chapter](https
 By default, `dcl::create_data_project()` creates an RStudio project for the directory. If you don't want to create an RStudio project, set the `project` argument to `FALSE`:
 
 ```{r eval=FALSE}
-dcl::create_data_project(path = "PROJECT/PATH", project = FALSE)
+dcl::create_data_project(path = "PATH/TO/PROJECT", project = FALSE)
 ```
 
 Note that it's generally a bad idea to nest RStudio projects. If you find yourself wanting to use our folder organization inside a different RStudio project, you'll probably want `project = FALSE`. 
@@ -42,11 +44,11 @@ Note that it's generally a bad idea to nest RStudio projects. If you find yourse
 
 We recommend using GitHub for all your data work. Generally, you'll want one repository per project. 
 
-Here, we'll explain how to setup git and GitHub for your new project. The following steps will only work if you set `project = TRUE` in the previous section (they require a .Rproj file). However, if you didn't want an RStudio project for your project, you likely also don't want a GitHub repository. 
+Here, we'll explain how to setup Git and GitHub for your new project. The following steps will only work if you set `project = TRUE` in the previous section (they require a .Rproj file). However, if you didn't want an RStudio project for your project, you likely also don't want a GitHub repository. 
 
 ### GitHub token
 
-You will need a GitHub personal access token in order to setup git and GitHub from RStudio. Open [GitHub](http://github.com/) in your browser. Then:
+You will need a GitHub personal access token in order to setup Git and GitHub from RStudio. Open [GitHub](http://github.com/) in your browser. Then:
 
 * Click on your profile picture in the upper righthand corner, then click on _Settings_.
 
@@ -86,13 +88,13 @@ knitr::include_graphics(
 ```
 
 * Copy the resulting token to your clipboard and return to RStudio.
-* From the RStudio console, open your .Renviron with
+* From the RStudio console, open your .Renviron file with
 
 ```{r eval=FALSE}
 usethis::edit_r_environ()
 ```
 
-* Add the following line to your .Renviron, replacing `YOUR_TOKEN` with the token you copied earlier.
+* Add the following line to your .Renviron file, replacing `YOUR_TOKEN` with the token you copied earlier.
 
 ```{r eval=FALSE}
 GITHUB_PAT=YOUR_TOKEN
@@ -102,7 +104,7 @@ GITHUB_PAT=YOUR_TOKEN
 
 ### `use_git()`
 
-Now, we can create a git repository for your project. 
+Now, we can create a Git repository for your project. 
 
 If you haven't already, open your project in RStudio. Then, in the console, run
 
@@ -125,7 +127,7 @@ Next, you'll be prompted to restart RStudio. Select the _Yes_ option.
 
 ### `use_github()`
 
-`use_git()` initializes a git repository, but you'll still need to connect that repository to GitHub. To do so, run
+`use_git()` initializes a Git repository, but you'll still need to connect that repository to GitHub. To do so, run
 
 ```{r eval=FALSE}
 usethis::use_github()
@@ -142,7 +144,7 @@ knitr::include_graphics(
 )
 ```
 
-Next, you'll be prompted to verify the repository name and description. Say _Yes_ unless you're unhappy with them (although note that you can always change them later).
+Next, you'll be prompted to verify the repository name and description. Say _Yes_ unless you're unhappy with them (you can always change them later).
 
 You might get the following error:
 
