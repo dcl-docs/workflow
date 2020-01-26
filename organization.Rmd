@@ -47,17 +47,17 @@ For each data file, come up with a short, but descriptive, name. You'll use thes
 
 ### scripts
 
-Data-cleaning scripts belong in __scripts__. We'll talk more about R scripts in [Chapter 7](https://dcl-workflow.stanford.edu/scripts.html), but you can also take a look at our [example scripts](https://github.com/dcl-docs/project-example/tree/master/scripts). 
+Data-manipulation scripts belong in __scripts__. We'll talk more about R scripts in [Chapter 7](https://dcl-workflow.stanford.edu/scripts.html), but you can also take a look at our [example scripts](https://github.com/dcl-docs/project-example/tree/master/scripts). 
 
 Create one script for each raw data source. Each script should read in a raw data file, process it, and then write the cleaned data to a .rds file in __data__. 
 
-Name each script the same name as the raw data source. For example, the script __collisions.R__ reads in __collisions.csv__, cleans the data, then writes _collisions.rds_ to __data__ using `readr::write_rds()`. 
+Name each script to correspond to the data file it creates. For example, the script __collisions.R__ reads in __collisions.csv__, cleans the data, then writes _collisions.rds_ to __data__ using `readr::write_rds()`. 
 
 If you want to join multiple data sources, create an additional script that joins the cleaned data files. For example, __bird_collisions_light.R__ joins __birds.rds__, __collisions.rds__, and __light_mp.rds__, and writes to __bird_collisions_light.rds__. As the diagram points out, your joining scripts can join cleaned data from __data__. 
   
 ### data
 
-__data__ contains cleaned data (likely in .rds format) that is ready to analyze. Each .rds file should have the same name as its corresponding raw data file and cleaning script. For example:
+__data__ contains cleaned data (likely in .rds format) that is ready to analyze. The name of each .rds file should correspond to the script that created it. For example:
 
 * __collisions.rds__
 * __birds.rds__
@@ -70,9 +70,7 @@ The __docs__ folder is for any documentation files you used to understand the da
 
 ### eda
 
-The __eda__ folder contains R Markdown files with your EDA work. Create one R Markdown file for each cleaned data set that you want to explore.
-
-Again, match the names of these files to your data files and cleaning scripts. For example, __birds.Rmd__ performs EDA on just __birds.rds__, __bird_collisions_light.Rmd__ performs EDA on just __bird_collisions_light.rds__, etc. This separation is intended to help you organize your EDA, which can become unwieldy if placed in a single file.   
+The __eda__ folder contains R Markdown files with your EDA work. As a start, perform EDA on each dataset and name the R Markdown files accordingly. For example, __birds.Rmd__ performs EDA on just __birds.rds__, __bird_collisions_light.Rmd__ performs EDA on just __bird_collisions_light.rds__, etc. Once you understand your data, you can perform further EDA studies, each in an R Markdown file with a descriptive name. This separation is intended to help you organize your EDA, which can become unwieldy if placed in a single file.   
 
 ### reports
 
@@ -80,7 +78,7 @@ __reports__ is for your final reports, share-able analysis, etc. The files here 
 
 ## File paths
 
-The [here package](https://here.r-lib.org/) simplifies the work of specifying file paths. The function `here::here()` allows you to specify a file path relative to the directory of your .Rproj file, no matter what folder you're in. For example, no matter where you are in your project, you can give the file path of __collisions.csv__ as `here::here("data-raw/collisions.csv")`. 
+The [here package](https://here.r-lib.org/) simplifies the work of specifying file paths. The function `here::here()` allows you to specify a file path relative to the directory of your .Rproj file, no matter what folder you're in. For example, no matter where you are in your project, you can give the file path of __collisions.rds__ as `here::here("data/collisions.rds")`. 
 
 See the our [scripts](https://github.com/dcl-docs/project-example/tree/master/scripts), [EDA documents](https://github.com/dcl-docs/project-example/tree/master/eda), and [reports](https://github.com/dcl-docs/project-example/tree/master/reports) for more examples.
 
@@ -146,13 +144,14 @@ REPORTS = report.md
 
 Now, you need to specify the _dependencies_ of your project. File A depends on File B if changing File B can change File A. For example, __birds.md__ depends on __birds.rds__ because changing the cleaned data in __birds.rds__ could change the analysis, visualizations, etc. in __birds.md__.
 
-Underneath the comment that says, `# Data dependencies`, you'll specify which how the cleaned data (the .rds files) depend on the raw data. For example, here's what we have in our birds makefile:
+Underneath the comment that says, `# Data dependencies`, you'll specify which how the cleaned data (the .rds files) depend on the scripts and raw data. For example, here's what we have in our birds makefile:
 
 ```
-birds.rds : birds.txt
-collisions.rds : collisions.csv
-light_mp.rds : light_mp.csv
-bird_collisions_light.rds : birds.rds collisions.rds light_mp.rds
+birds.rds : birds.R birds.txt
+collisions.rds : collisions.R collisions.csv
+light_mp.rds : light_mp.R light_mp.csv
+bird_collisions_light.rds : bird_collisions_light.R \
+  birds.rds collisions.rds light_mp.rds
 ```
 
 The syntax is:
