@@ -144,14 +144,13 @@ REPORTS = report.md
 
 Now, you need to specify the _dependencies_ of your project. File A depends on File B if changing File B can change File A. For example, __birds.md__ depends on __birds.rds__ because changing the cleaned data in __birds.rds__ could change the analysis, visualizations, etc. in __birds.md__.
 
-Underneath the comment that says, `# Data dependencies`, you'll specify which how the cleaned data (the .rds files) depend on the scripts and raw data. For example, here's what we have in our birds makefile:
+Underneath the comment that says, `# Data dependencies`, you'll specify which how the cleaned data (the .rds files) depend on the raw data. For example, here's what we have in our birds makefile:
 
 ```
-birds.rds : birds.R birds.txt
-collisions.rds : collisions.R collisions.csv
-light_mp.rds : light_mp.R light_mp.csv
-bird_collisions_light.rds : bird_collisions_light.R \
-  birds.rds collisions.rds light_mp.rds
+birds.rds : birds.txt
+collisions.rds : collisions.csv
+light_mp.rds : light_mp.csv
+bird_collisions_light.rds : birds.rds collisions.rds light_mp.rds
 ```
 
 The syntax is:
