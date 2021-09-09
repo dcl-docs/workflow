@@ -24,13 +24,13 @@ to create a directory at your supplied path with the following files and directo
 * __data-raw__: raw data
 * __docs__: data documentation and notes
 * __eda__: exploratory data analysis on your cleaned data
-* __scripts__: data-manipulation scripts
+* __scripts__: data manipulation scripts
 * __reports__: findings to present to others
 * __Makefile__
 * __.gitignore__
 * __README.md__
 
-We'll discuss how to use these directories and files in the [next chapter](https://dcl-workflow.stanford.edu/organization.html).
+We'll discuss how to use these directories and files in the next chapter.
 
 By default, `dcl::create_data_project()` creates an RStudio project for the directory. If you don't want to create an RStudio project, set the `project` argument to `FALSE`:
 
@@ -59,7 +59,7 @@ knitr::include_graphics(
 )
 ```
 
-* Then, go to _Developer Settings_ > _Personal access tokens_.
+* Then, go to _Developer settings_ > _Personal access tokens_.
 * Click _Generate new token_.
 
 ```{r echo=FALSE}
@@ -100,6 +100,7 @@ usethis::edit_r_environ()
 GITHUB_PAT=YOUR_TOKEN
 ```
 
+* Save the file.
 * Restart R (_Cmd/Ctrl_ + _Shift_ + _F10_). 
 
 ### `use_git()`

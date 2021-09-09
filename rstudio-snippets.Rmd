@@ -12,11 +12,11 @@ You can use the same process to create any snippet you want.
 
 ## `tv` snippet
 
-* Go to _RStudio_ > _Preferences_ > _Code_, and find the _Snippets_ section. 
+* Go to _Tools_ > _Global Options..._ > _Code_, and find the _Snippets_ section. 
 * Make sure _Enable code snippets_ is checked.
-* Click on _Edit snippets_.
+* Click on _Edit Snippets..._.
 
-```{r echo=FALSE, image_dpi = 125}
+```{r echo=FALSE, image_dpi=125}
 knitr::include_graphics("images/rstudio-snippets/preferences_wizard.png")
 ```
 
@@ -30,7 +30,7 @@ snippet tv
 
 Note that every line after `snippet [snippet name]` must start with a single tab.
 
-```{r echo=FALSE, image_dpi = 125}
+```{r echo=FALSE, image_dpi=125}
 knitr::include_graphics("images/rstudio-snippets/tv_snippet.png")
 ```
 
@@ -48,9 +48,9 @@ Here's what the script template looks like:
 # Description
 
 # Author: Name
-# Version: 2019-08-26
+# Version: 2021-09-08
 
-# Libraries
+# Packages
 library(tidyverse)
 
 # Parameters
@@ -65,24 +65,24 @@ Because the script template has elements for the user to fill in, the `rscript` 
 * Follow the steps from the previous section to open the snippet editor.
 * Paste in the following code to create a snippet named `rscript`:
 
-```{}
+```{r, eval=FALSE}
 snippet rscript
-	# ${1:Descriptio}
+	# ${1:Description}
 	
 	# Author: ${2:Name}
 	# Version: `r Sys.Date()`
 	
-	# Libraries
+	# Packages
 	library(tidyverse)
 	
 	# Parameters
 	
 	# ============================================================================
 	
-	${5:# Code}
+	${3:# Code}
 ```
 
-```{r echo=FALSE, image_dpi = 125}
+```{r echo=FALSE, image_dpi=125}
 knitr::include_graphics("images/rstudio-snippets/rscript_snippet.png")
 ```
 
@@ -95,13 +95,13 @@ Now, you can use your snippet.
 * Type `rscript` and then hit tab. The script template should appear.
 * Fill in your variables (if the snippet has any). You can tab to automatically move the cursor to the next variable. 
 
-```{r echo=FALSE, image_dpi = 125}
+```{r echo=FALSE, image_dpi=125}
 knitr::include_graphics("images/rstudio-snippets/rscript_snippet_done.png")
 ``` 
 
 You shouldn't have to type out `rscript` everytime you want to use the snippet. If you type out a portion of `rscript`, the name of the snippet should appear and you can hit tab to select the snippet.
 
-```{r echo=FALSE, image_dpi = 125}
+```{r echo=FALSE, image_dpi=125}
 knitr::include_graphics("images/rstudio-snippets/rscript_snippet_popup.png")
 ```
 

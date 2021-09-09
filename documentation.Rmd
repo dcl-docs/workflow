@@ -15,14 +15,13 @@ There are three commands in R that you should be familiar with:
   use `?` to figure it out - just look at the top-left of the help page;
   the package name is surrounded in `{}`.
 
+* `help(package = "package_name")` lists all the functions available in
+  a package with links to their help pages.
+
 * `browseVignettes(package = "package_name")` lists all the "vignettes"
   available for a package. Vignettes are longer documents that describe
   how multiple functions work. Many packages include an introductory vignette
   that give you the lay of the land: these are useful to read before
   you know the name of the function you need.
-
-* `help(package = "package_name")` lists all the functions available in
-  a package with links to their help pages. This mostly useful for packages
-  that don't have a vignette.
 
 Alternatively, you can use <https://www.rdocumentation.org>; this provides exactly access to the same documentation pages and vignettes, but in an attractive website.

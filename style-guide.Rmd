@@ -21,10 +21,10 @@ Good, consistent style makes code much easier to read, helping others---includin
 RStudio includes several features that will help you practice good style. These include:
 
 * 80-character margin
-    - Go to _Tools_ > _Global Options_ > _Code_ > _Display_, check _Show Margin_, and make sure that _Column margin_ is set to 80. This turns on a line in all files that marks the 80-character cutoff. As you'll see, you never want a line of code to exceed 80-characters.
+    - Go to _Tools_ > _Global Options..._ > _Code_ > _Display_, check _Show Margin_, and make sure that _Margin column_ is set to 80. This turns on a line in all files that marks the 80-character cutoff. As you'll see, you never want a line of code to exceed 80-characters.
     - The lower lefthand corner of the RStudio editor also displays the row:column numbers. The column number gives the _next_ position, so you're OK if it says 81.
 * Style diagnostics
-    - Go to _Tools_ > _Global Options_ > _Code_ > _Diagnostics_ and check _Provide R style diagnostics_. This turns on a feature that will tell you if you've violated some simple style rules. This tool will underline your bad code with a blue squiggle and put a blue _i_ icon in the lefthand margin. Hover over the _i_ to see the issue.
+    - Go to _Tools_ > _Global Options..._ > _Code_ > _Diagnostics_ and check _Provide R style diagnostics_. This turns on a feature that will tell you if you've violated some simple style rules. This tool will underline your bad code with a blue squiggle and put a blue _i_ icon in the lefthand margin. Hover over the _i_ to see the issue.
 * Indentation fixer
     - Cmd/Ctrl + I fixes some indentation issues. Highlight the code and press Cmd/Ctrl + I.
 

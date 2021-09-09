@@ -1,23 +1,3 @@
-```{r include=FALSE, cache=FALSE}
-set.seed(858)
-
-options(
-  digits = 3,
-  dplyr.print_max = 6,
-  dplyr.print_min = 6
-)
-
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.align = 'center',
-  fig.asp = 0.618,  # 1 / phi
-  fig.show = "hold"
-)
-
-image_dpi <- 125
-image_dpi_small <- 325
-```
 
 # Organization
 
@@ -47,11 +27,11 @@ For each data file, come up with a short, but descriptive, name. You'll use thes
 
 ### scripts
 
-Data-manipulation scripts belong in __scripts__. We'll talk more about R scripts in [Chapter 7](https://dcl-workflow.stanford.edu/scripts.html), but you can also take a look at our [example scripts](https://github.com/dcl-docs/project-example/tree/master/scripts). 
+Data-manipulation scripts belong in __scripts__. We'll talk more about R scripts in the next chapter, but you can also take a look at our [example scripts](https://github.com/dcl-docs/project-example/tree/master/scripts). 
 
-Create one script for each raw data source. Each script should read in a raw data file, process it, and then write the cleaned data to a .rds file in __data__. 
+Create one script for each raw data source. Each script should read in a raw data file, process it, and then write the cleaned data to an .rds file in __data__. 
 
-Name each script to correspond to the data file it creates. For example, the script __collisions.R__ reads in __collisions.csv__, cleans the data, then writes _collisions.rds_ to __data__ using `readr::write_rds()`. 
+Name each script to correspond to the data file it creates. For example, the script __collisions.R__ reads in __collisions.csv__, cleans the data, then writes _collisions.rds_ to __data__. 
 
 If you want to join multiple data sources, create an additional script that joins the cleaned data files. For example, __bird_collisions_light.R__ joins __birds.rds__, __collisions.rds__, and __light_mp.rds__, and writes to __bird_collisions_light.rds__. As the diagram points out, your joining scripts can join cleaned data from __data__. 
   
@@ -74,11 +54,11 @@ The __eda__ folder contains R Markdown files with your EDA work. As a start, per
 
 ### reports
 
-__reports__ is for your final reports, share-able analysis, etc. The files here don't need to be named according to the convention of the other files. For example, our __reports__ folder just has one report called __report.Rmd__. 
+__reports__ is for your final reports, shareable analysis, etc. The files here don't need to be named according to the convention of the other files. For example, our __reports__ folder just has one report called __report.Rmd__. 
 
 ## File paths
 
-The [here package](https://here.r-lib.org/) simplifies the work of specifying file paths. The function `here::here()` allows you to specify a file path relative to the directory of your .Rproj file, no matter what folder you're in. For example, no matter where you are in your project, you can give the file path of __collisions.rds__ as `here::here("data/collisions.rds")`. 
+The [here](https://here.r-lib.org/) package simplifies the work of specifying file paths. The function `here::here()` allows you to specify a file path relative to the directory of your .Rproj file, no matter what folder you're in. For example, no matter where you are in your project, you can give the file path of __collisions.rds__ as `here::here("data/collisions.rds")`. 
 
 See the our [scripts](https://github.com/dcl-docs/project-example/tree/master/scripts), [EDA documents](https://github.com/dcl-docs/project-example/tree/master/eda), and [reports](https://github.com/dcl-docs/project-example/tree/master/reports) for more examples.
 
@@ -87,12 +67,12 @@ See the our [scripts](https://github.com/dcl-docs/project-example/tree/master/sc
 The dcl package also contains a R Markdown template to use for your EDA files and reports. To use the template:
 
 * Click on the new file button in the top-left corner of RStudio.
-* Select _R Markdown_ > _From Template_ > _DCL GitHub Document_. 
+* Select _R Markdown..._ > _From Template_ > _DCL GitHub Document_. 
 
 Our template is similar to the default GitHub document template, but:
 
 * Includes a table of contents by default.
-* Formats the first R chunk to highlight places for libraries, parameters, and reading in code.
+* Formats the first R chunk to highlight places for packages, parameters, and reading in code.
 * Has example headers.
 
 ## Make
@@ -187,4 +167,4 @@ Once you've set up your makefile (and have the necessary files in place), naviga
 
 because nothing has changed since the last time Make ran.
 
-Now, you can run `make` from the command line every time you want to rebuild your project, suspect something has changed, or have resumed work again. Your files will automatically be kept up-to-date. 
+Now, you can run `make` from the command line every time you want to rebuild your project, suspect something has changed, or have resumed work again. Your files will automatically be kept up to date. 
