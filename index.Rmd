@@ -2,7 +2,6 @@
 knitr: bookdown::render_book
 title: "Workflow"
 author: "Sara Altman, Bill Behrman, Hadley Wickham"
-date: "`r Sys.Date()`"
 description: "A collection of readings on data science workflow."
 url: 'https\://dcl-workflow.stanford.edu'
 github-repo: dcl-docs/workflow
@@ -17,6 +16,18 @@ link-citations: true
 
 ## How to read this book {-}
 
+In the following, we used these packages:
+
+```{r echo=FALSE}
+sessioninfo::package_info(
+  pkgs = c("dcl", "reprex", "tidyverse", "usethis"),
+  dependencies = FALSE
+) |> 
+  tibble::as_tibble() |> 
+  dplyr::mutate(Source = stringr::str_remove(source, "@\\w*")) |> 
+  dplyr::select(Package = package, Version = ondiskversion, Source) |> 
+  knitr::kable()
+```
 
 ## An evolving book {-}
 
