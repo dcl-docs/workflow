@@ -13,8 +13,7 @@ link-citations: true
 
 # Welcome {-}
 
-
-## How to read this book {-}
+This book is a covers aspects of data science workflow using the tidyverse.
 
 In the following, we used these packages:
 
