@@ -1,5 +1,5 @@
 
-# (PART) Resources {-} 
+# (PART\*) Coding {-} 
 
 # Documentation
 
@@ -23,5 +23,3 @@ There are three commands in R that you should be familiar with:
   how multiple functions work. Many packages include an introductory vignette
   that give you the lay of the land: these are useful to read before
   you know the name of the function you need.
-
-Alternatively, you can use <https://www.rdocumentation.org>; this provides exactly access to the same documentation pages and vignettes, but in an attractive website.
