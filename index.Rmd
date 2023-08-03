@@ -11,11 +11,11 @@ bibliography: references.bib
 link-citations: true
 ---
 
-# Welcome {-}
+# Welcome {.unnumbered}
 
-This book is a covers aspects of data science workflow using the tidyverse.
+This book covers aspects of data science workflow using the tidyverse. It was developed for the Stanford [Data Challenge Lab](https://datalab.stanford.edu/challenge-lab) (DCL) course.
 
-In the following, we used these packages:
+The book uses these packages:
 
 ```{r echo=FALSE}
 sessioninfo::package_info(
@@ -28,8 +28,4 @@ sessioninfo::package_info(
   knitr::kable()
 ```
 
-## An evolving book {-}
-
-This book is not intended to be static. Starting in January 2020, we use this book to teach data science workflow in the Stanford [Data Challenge Lab](https://datalab.stanford.edu/challenge-lab) (DCL) course. The DCL functions as a testing ground for educational materials, as our students give us routine feedback on what they read and do in the course. We use this feedback to constantly improve our materials, including this book. The [source for the book](https://github.com/dcl-docs/workflow) is also available on GitHub where we welcome suggestions for improvements.
-
-This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/). 
+The [source for the book](https://github.com/dcl-docs/workflow) is available on GitHub where we welcome suggestions for improvements. This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
