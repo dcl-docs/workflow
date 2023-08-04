@@ -13,7 +13,7 @@ link-citations: true
 
 # Welcome {.unnumbered}
 
-This book covers aspects of data science workflow using the tidyverse. It was developed for the Stanford [Data Challenge Lab](https://datalab.stanford.edu/challenge-lab) (DCL) course.
+This book covers aspects of data science workflow using the tidyverse. It was developed for the Stanford [Data Challenge Lab](https://datalab.stanford.edu/challenge-lab) (DCL) course as a part of [this curriculum](https://dcl-docs.github.io/curriculum/). More open content from the course is available [here](https://dcl-docs.stanford.edu/).
 
 The book uses these packages:
 
