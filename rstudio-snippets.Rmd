@@ -1,6 +1,4 @@
 
-# (PART) RStudio {-} 
-
 # RStudio code snippets
 
 In RStudio, __code snippets__ are text macros that you can use to insert bits of commonly used code. Here, we'll walk you through the creation of two snippets:
@@ -67,19 +65,19 @@ Because the script template has elements for the user to fill in, the `rscript` 
 
 ```{r, eval=FALSE}
 snippet rscript
-	# ${1:Description}
+  # ${1:Description}
 	
-	# Author: ${2:Name}
-	# Version: `r Sys.Date()`
+  # Author: ${2:Name}
+  # Version: `r Sys.Date()`
 	
-	# Packages
-	library(tidyverse)
+  # Packages
+  library(tidyverse)
 	
-	# Parameters
+  # Parameters
 	
-	# ============================================================================
+  # ============================================================================
 	
-	${3:# Code}
+  ${3:# Code}
 ```
 
 ```{r echo=FALSE, image_dpi=125}
