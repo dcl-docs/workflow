@@ -1,7 +1,7 @@
 
-# (PART) Project workflow {-} 
+# (PART\*) Projects {-} 
 
-# Introduction
+# Project introduction
 
 Good project workflow habits can make your data life calmer and easier, save you from preventable errors, and help you more effectively explore and analyze data. 
 
