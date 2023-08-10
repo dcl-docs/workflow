@@ -121,7 +121,7 @@ For this to work, you'll need to fill in the variables `DATA`, `EDA`, and `REPOR
 
 Now, you need to specify the *dependencies* of your project. File A depends on File B if changing File B can change File A. For example, **birds.md** depends on **birds.rds** because changing the cleaned data in **birds.rds** could change the analysis, visualizations, etc. in **birds.md**.
 
-Underneath the comment that says, `# Data dependencies`, you'll specify which how the cleaned data (the .rds files) depend on the raw data. For example, here's what we have in our birds makefile:
+Underneath the comment that says, `# Data dependencies`, you'll specify which how the cleaned data (the .rds files) depend on raw data. For example, here's what we have in our birds makefile:
 
     birds.rds : birds.txt
     collisions.rds : collisions.csv
