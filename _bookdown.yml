@@ -3,19 +3,16 @@ delete_merged_file: true
 
 rmd_files: [
   "index.Rmd",
+  "software.Rmd",
   "documentation.Rmd",
-  "learning-more.Rmd",
+  "style-guide.Rmd",
   "rstudio-snippets.Rmd",
-  "project-workflow.Rmd",
+  "project-introduction.Rmd",
   "project-setup.Rmd",
-  "organization.Rmd",
+  "project-organization.Rmd",
   "scripts.Rmd",
   "getting-help.Rmd",
-  "pull-requests.Rmd",
-  "remote-computing.Rmd",
-  "rscripts-remote.Rmd",
-  "style-guide.Rmd",
-  "references.Rmd"
+  "learning-more.Rmd"
 ]
 
 before_chapter_script: "_common.R"

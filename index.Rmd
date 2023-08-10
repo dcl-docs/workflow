@@ -2,7 +2,6 @@
 knitr: bookdown::render_book
 title: "Workflow"
 author: "Sara Altman, Bill Behrman, Hadley Wickham"
-date: "`r Sys.Date()`"
 description: "A collection of readings on data science workflow."
 url: 'https\://dcl-workflow.stanford.edu'
 github-repo: dcl-docs/workflow
@@ -12,14 +11,21 @@ bibliography: references.bib
 link-citations: true
 ---
 
-# Welcome {-}
+# Welcome {.unnumbered}
 
+This book covers aspects of data science workflow using the tidyverse. It was developed for the Stanford [Data Challenge Lab](https://datalab.stanford.edu/challenge-lab) (DCL) course as a part of [this curriculum](https://dcl-docs.github.io/curriculum/). More open content from the course is available [here](https://dcl-docs.stanford.edu/).
 
-## How to read this book {-}
+The book uses these packages:
 
+```{r echo=FALSE}
+sessioninfo::package_info(
+  pkgs = c("dcl", "reprex", "tidyverse", "usethis"),
+  dependencies = FALSE
+) |> 
+  tibble::as_tibble() |> 
+  dplyr::mutate(Source = stringr::str_remove(source, "@\\w*")) |> 
+  dplyr::select(Package = package, Version = ondiskversion, Source) |> 
+  knitr::kable()
+```
 
-## An evolving book {-}
-
-This book is not intended to be static. Starting in January 2020, we use this book to teach data science workflow in the Stanford [Data Challenge Lab](https://datalab.stanford.edu/challenge-lab) (DCL) course. The DCL functions as a testing ground for educational materials, as our students give us routine feedback on what they read and do in the course. We use this feedback to constantly improve our materials, including this book. The [source for the book](https://github.com/dcl-docs/workflow) is also available on GitHub where we welcome suggestions for improvements.
-
-This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/). 
+The [source for the book](https://github.com/dcl-docs/workflow) is available on GitHub where we welcome suggestions for improvements. This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).

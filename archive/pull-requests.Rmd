@@ -11,9 +11,8 @@ We'll walk you through two workflows for issuing pull requests. The first involv
 
 The second workflow is more general, but also more complicated. Use this second workflow when:
 
-* Contributing to open-source packages like those in the tidyverse
-* Editing non-book DCL readings like the [Model evaluation reading](https://dcl-2019-04.github.io/curriculum/model-eval.html)
-* Making extensive or code-related edits to bookdown books
+* Contributing to open-source packages like those in the tidyverse.
+* Making extensive or code-related edits to bookdown books.
 
 ## Quick fixes to bookdown books
 
@@ -57,7 +56,7 @@ You should now see page comparing your proposed changes to the original. Click _
 knitr::include_graphics("images/pull-requests/bookdown-pull-request-compare.png")
 ```
 
-You'll again have a change to edit your pull request title and description. 
+You'll again have a chance to edit your pull request title and description. 
 
 ```{r echo=FALSE}
 knitr::include_graphics("images/pull-requests/bookdown-pull-request-description-2.png")
@@ -183,7 +182,7 @@ It's important to keep your fork in-sync with the original repository. Before yo
 
 `git fetch upstream`
 
-Then, make sure you're one your fork's master branch. If you're not (or you just want to be safe), switch to the master branch by running
+Then, make sure you're on your fork's master branch. If you're not (or you just want to be safe), switch to the master branch by running
 
 `git checkout master`
 
