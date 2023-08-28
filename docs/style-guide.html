@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Style guide | Workflow</title>
+  <meta name="description" content="A collection of readings on data science workflow." />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Style guide | Workflow" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A collection of readings on data science workflow." />
+  <meta name="github-repo" content="dcl-docs/workflow" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Style guide | Workflow" />
+  
+  <meta name="twitter:description" content="A collection of readings on data science workflow." />
+  
+
+<meta name="author" content="Sara Altman, Bill Behrman, Hadley Wickham" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="documentation.html"/>
+<link rel="next" href="rstudio-snippets.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Workflow</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="part"><span><b>Setup</b></span></li>
+<li class="chapter" data-level="1" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>1</b> Software installation</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="software.html"><a href="software.html#mac-computers"><i class="fa fa-check"></i><b>1.1</b> Mac computers</a></li>
+<li class="chapter" data-level="1.2" data-path="software.html"><a href="software.html#github"><i class="fa fa-check"></i><b>1.2</b> GitHub</a></li>
+<li class="chapter" data-level="1.3" data-path="software.html"><a href="software.html#git"><i class="fa fa-check"></i><b>1.3</b> Git</a></li>
+<li class="chapter" data-level="1.4" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>1.4</b> R</a></li>
+<li class="chapter" data-level="1.5" data-path="software.html"><a href="software.html#rstudio"><i class="fa fa-check"></i><b>1.5</b> RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="software.html"><a href="software.html#r-packages"><i class="fa fa-check"></i><b>1.6</b> R packages</a></li>
+<li class="chapter" data-level="1.7" data-path="software.html"><a href="software.html#update-r-packages"><i class="fa fa-check"></i><b>1.7</b> Update R packages</a></li>
+<li class="chapter" data-level="1.8" data-path="software.html"><a href="software.html#configure-rstudio"><i class="fa fa-check"></i><b>1.8</b> Configure RStudio</a></li>
+</ul></li>
+<li class="part"><span><b>Coding</b></span></li>
+<li class="chapter" data-level="2" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>2</b> Documentation</a></li>
+<li class="chapter" data-level="3" data-path="style-guide.html"><a href="style-guide.html"><i class="fa fa-check"></i><b>3</b> Style guide</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="style-guide.html"><a href="style-guide.html#why-does-style-matter"><i class="fa fa-check"></i><b>3.1</b> Why does style matter?</a></li>
+<li class="chapter" data-level="3.2" data-path="style-guide.html"><a href="style-guide.html#style-helpers"><i class="fa fa-check"></i><b>3.2</b> Style helpers</a></li>
+<li class="chapter" data-level="3.3" data-path="style-guide.html"><a href="style-guide.html#spacing"><i class="fa fa-check"></i><b>3.3</b> Spacing</a></li>
+<li class="chapter" data-level="3.4" data-path="style-guide.html"><a href="style-guide.html#pipes"><i class="fa fa-check"></i><b>3.4</b> Pipes</a></li>
+<li class="chapter" data-level="3.5" data-path="style-guide.html"><a href="style-guide.html#verb-arguments"><i class="fa fa-check"></i><b>3.5</b> Verb arguments</a></li>
+<li class="chapter" data-level="3.6" data-path="style-guide.html"><a href="style-guide.html#an-indentation-example"><i class="fa fa-check"></i><b>3.6</b> An indentation example</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rstudio-snippets.html"><a href="rstudio-snippets.html"><i class="fa fa-check"></i><b>4</b> RStudio code snippets</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="rstudio-snippets.html"><a href="rstudio-snippets.html#tv-snippet"><i class="fa fa-check"></i><b>4.1</b> <code>tv</code> snippet</a></li>
+<li class="chapter" data-level="4.2" data-path="rstudio-snippets.html"><a href="rstudio-snippets.html#rscript-snippet"><i class="fa fa-check"></i><b>4.2</b> <code>rscript</code> snippet</a></li>
+</ul></li>
+<li class="part"><span><b>Projects</b></span></li>
+<li class="chapter" data-level="5" data-path="project-introduction.html"><a href="project-introduction.html"><i class="fa fa-check"></i><b>5</b> Project introduction</a></li>
+<li class="chapter" data-level="6" data-path="project-setup.html"><a href="project-setup.html"><i class="fa fa-check"></i><b>6</b> Project setup</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="project-setup.html"><a href="project-setup.html#create-a-project"><i class="fa fa-check"></i><b>6.1</b> Create a project</a></li>
+<li class="chapter" data-level="6.2" data-path="project-setup.html"><a href="project-setup.html#setup-github"><i class="fa fa-check"></i><b>6.2</b> Setup GitHub</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="project-setup.html"><a href="project-setup.html#github-token"><i class="fa fa-check"></i><b>6.2.1</b> GitHub token</a></li>
+<li class="chapter" data-level="6.2.2" data-path="project-setup.html"><a href="project-setup.html#use_git"><i class="fa fa-check"></i><b>6.2.2</b> <code>use_git()</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="project-setup.html"><a href="project-setup.html#use_github"><i class="fa fa-check"></i><b>6.2.3</b> <code>use_github()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>7</b> Project organization</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#directories"><i class="fa fa-check"></i><b>7.1</b> Directories</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="project-organization.html"><a href="project-organization.html#data-raw"><i class="fa fa-check"></i><b>7.1.1</b> data-raw</a></li>
+<li class="chapter" data-level="7.1.2" data-path="project-organization.html"><a href="project-organization.html#scripts"><i class="fa fa-check"></i><b>7.1.2</b> scripts</a></li>
+<li class="chapter" data-level="7.1.3" data-path="project-organization.html"><a href="project-organization.html#data"><i class="fa fa-check"></i><b>7.1.3</b> data</a></li>
+<li class="chapter" data-level="7.1.4" data-path="project-organization.html"><a href="project-organization.html#docs"><i class="fa fa-check"></i><b>7.1.4</b> docs</a></li>
+<li class="chapter" data-level="7.1.5" data-path="project-organization.html"><a href="project-organization.html#eda"><i class="fa fa-check"></i><b>7.1.5</b> eda</a></li>
+<li class="chapter" data-level="7.1.6" data-path="project-organization.html"><a href="project-organization.html#reports"><i class="fa fa-check"></i><b>7.1.6</b> reports</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#file-paths"><i class="fa fa-check"></i><b>7.2</b> File paths</a></li>
+<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#r-markdown-template"><i class="fa fa-check"></i><b>7.3</b> R Markdown template</a></li>
+<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#make"><i class="fa fa-check"></i><b>7.4</b> Make</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="project-organization.html"><a href="project-organization.html#create-a-makefile"><i class="fa fa-check"></i><b>7.4.1</b> Create a makefile</a></li>
+<li class="chapter" data-level="7.4.2" data-path="project-organization.html"><a href="project-organization.html#run-make"><i class="fa fa-check"></i><b>7.4.2</b> Run Make</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="scripts.html"><a href="scripts.html"><i class="fa fa-check"></i><b>8</b> Scripts</a></li>
+<li class="part"><span><b>Resources</b></span></li>
+<li class="chapter" data-level="9" data-path="getting-help.html"><a href="getting-help.html"><i class="fa fa-check"></i><b>9</b> Getting help</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="getting-help.html"><a href="getting-help.html#help-yourself"><i class="fa fa-check"></i><b>9.1</b> Help yourself</a></li>
+<li class="chapter" data-level="9.2" data-path="getting-help.html"><a href="getting-help.html#get-help-from-others"><i class="fa fa-check"></i><b>9.2</b> Get help from others</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="getting-help.html"><a href="getting-help.html#reprex-pkg"><i class="fa fa-check"></i><b>9.2.1</b> The reprex package</a></li>
+<li class="chapter" data-level="9.2.2" data-path="getting-help.html"><a href="getting-help.html#more-resources-on-asking-good-questions"><i class="fa fa-check"></i><b>9.2.2</b> More resources on asking good questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="learning-more.html"><a href="learning-more.html"><i class="fa fa-check"></i><b>10</b> Learning more</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Workflow</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="style-guide" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Style guide<a href="style-guide.html#style-guide" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This style guide will introduce you to the style used in the Data Challenge Lab. It expands on the style introduced in the <a href="https://style.tidyverse.org/index.html">tidyverse style guide</a>.</p>
+<div id="why-does-style-matter" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Why does style matter?<a href="style-guide.html#why-does-style-matter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Style guides can seem like a list of arbitrary, pointless rules, but code style does matter.</p>
+<p>Good, consistent style makes code much easier to read, helping others—including your future self—understand what a bit of code is trying to accomplish. You’ll rarely recall exactly what code does without reading it again, so think of good code style like a gift to Future You from Present You. Also, the clearer and simpler your code is, the easier it will be to identify and fix bugs.</p>
+</div>
+<div id="style-helpers" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Style helpers<a href="style-guide.html#style-helpers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>RStudio includes several features that will help you practice good style. These include:</p>
+<ul>
+<li>80-character margin
+<ul>
+<li>Go to <em>Tools</em> &gt; <em>Global Options…</em> &gt; <em>Code</em> &gt; <em>Display</em>, check <em>Show Margin</em>, and make sure that <em>Margin column</em> is set to 80. This turns on a line in all files that marks the 80-character cutoff. As you’ll see, you never want a line of code to exceed 80-characters.</li>
+<li>The lower lefthand corner of the RStudio editor also displays the row:column numbers. The column number gives the <em>next</em> position, so you’re OK if it says 81.</li>
+</ul></li>
+<li>Style diagnostics
+<ul>
+<li>Go to <em>Tools</em> &gt; <em>Global Options…</em> &gt; <em>Code</em> &gt; <em>Diagnostics</em> and check <em>Provide R style diagnostics</em>. This turns on a feature that will tell you if you’ve violated some simple style rules. This tool will underline your bad code with a blue squiggle and put a blue <em>i</em> icon in the lefthand margin. Hover over the <em>i</em> to see the issue.</li>
+</ul></li>
+<li>Indentation fixer
+<ul>
+<li>Cmd/Ctrl + I fixes some indentation issues. Highlight the code and press Cmd/Ctrl + I.</li>
+</ul></li>
+</ul>
+</div>
+<div id="spacing" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Spacing<a href="style-guide.html#spacing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Put spaces after commas.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="style-guide.html#cb1-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb1-2"><a href="style-guide.html#cb1-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb1-3"><a href="style-guide.html#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="style-guide.html#cb1-4" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb1-5"><a href="style-guide.html#cb1-5" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span></code></pre></div>
+<ul>
+<li>Put spaces before and after mathematical operators.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="style-guide.html#cb2-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb2-2"><a href="style-guide.html#cb2-2" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span></span>
+<span id="cb2-3"><a href="style-guide.html#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="style-guide.html#cb2-4" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb2-5"><a href="style-guide.html#cb2-5" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<ul>
+<li>Put spaces before and after assignment operators.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="style-guide.html#cb3-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb3-2"><a href="style-guide.html#cb3-2" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="style-guide.html#cb3-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">c=</span>a)</span>
+<span id="cb3-4"><a href="style-guide.html#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="style-guide.html#cb3-5" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb3-6"><a href="style-guide.html#cb3-6" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb3-7"><a href="style-guide.html#cb3-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">c =</span> a)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="style-guide.html#cb4-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb4-2"><a href="style-guide.html#cb4-2" tabindex="-1"></a>df<span class="ot">&lt;-</span>data</span>
+<span id="cb4-3"><a href="style-guide.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="style-guide.html#cb4-4" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb4-5"><a href="style-guide.html#cb4-5" tabindex="-1"></a>df <span class="ot">&lt;-</span> data</span></code></pre></div>
+</div>
+<div id="pipes" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Pipes<a href="style-guide.html#pipes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Put a space before a pipe.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="style-guide.html#cb5-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb5-2"><a href="style-guide.html#cb5-2" tabindex="-1"></a>df<span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="style-guide.html#cb5-3" tabindex="-1"></a>  <span class="fu">verb</span>()</span>
+<span id="cb5-4"><a href="style-guide.html#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="style-guide.html#cb5-5" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb5-6"><a href="style-guide.html#cb5-6" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb5-7"><a href="style-guide.html#cb5-7" tabindex="-1"></a>  <span class="fu">verb</span>()</span></code></pre></div>
+<ul>
+<li>Add a new line after each pipe and indent each verb.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="style-guide.html#cb6-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb6-2"><a href="style-guide.html#cb6-2" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">verb1</span>() <span class="sc">|&gt;</span> <span class="fu">verb2</span>()</span>
+<span id="cb6-3"><a href="style-guide.html#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="style-guide.html#cb6-4" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb6-5"><a href="style-guide.html#cb6-5" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb6-6"><a href="style-guide.html#cb6-6" tabindex="-1"></a>  <span class="fu">verb1</span>() <span class="sc">|&gt;</span> <span class="fu">verb2</span>()</span>
+<span id="cb6-7"><a href="style-guide.html#cb6-7" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="style-guide.html#cb6-8" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb6-9"><a href="style-guide.html#cb6-9" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb6-10"><a href="style-guide.html#cb6-10" tabindex="-1"></a>  <span class="fu">verb1</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb6-11"><a href="style-guide.html#cb6-11" tabindex="-1"></a>  <span class="fu">verb2</span>()</span></code></pre></div>
+<ul>
+<li>When assigning the result of a pipe to a variable, begin the pipe on a new, indented line.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="style-guide.html#cb7-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb7-2"><a href="style-guide.html#cb7-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">verb</span>()</span>
+<span id="cb7-3"><a href="style-guide.html#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="style-guide.html#cb7-4" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb7-5"><a href="style-guide.html#cb7-5" tabindex="-1"></a>data <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb7-6"><a href="style-guide.html#cb7-6" tabindex="-1"></a>  <span class="fu">verb</span>()</span>
+<span id="cb7-7"><a href="style-guide.html#cb7-7" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="style-guide.html#cb7-8" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb7-9"><a href="style-guide.html#cb7-9" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
+<span id="cb7-10"><a href="style-guide.html#cb7-10" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb7-11"><a href="style-guide.html#cb7-11" tabindex="-1"></a>  <span class="fu">verb</span>()</span></code></pre></div>
+<ul>
+<li>Avoid assigning unnecessary variables. Try to use a single pipe when possible.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="style-guide.html#cb8-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb8-2"><a href="style-guide.html#cb8-2" tabindex="-1"></a>data1 <span class="ot">&lt;-</span></span>
+<span id="cb8-3"><a href="style-guide.html#cb8-3" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb8-4"><a href="style-guide.html#cb8-4" tabindex="-1"></a>  <span class="fu">verb1</span>()</span>
+<span id="cb8-5"><a href="style-guide.html#cb8-5" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="style-guide.html#cb8-6" tabindex="-1"></a>data2 <span class="ot">&lt;-</span></span>
+<span id="cb8-7"><a href="style-guide.html#cb8-7" tabindex="-1"></a>  data1 <span class="sc">|&gt;</span> </span>
+<span id="cb8-8"><a href="style-guide.html#cb8-8" tabindex="-1"></a>  <span class="fu">verb2</span>()</span>
+<span id="cb8-9"><a href="style-guide.html#cb8-9" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="style-guide.html#cb8-10" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb8-11"><a href="style-guide.html#cb8-11" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
+<span id="cb8-12"><a href="style-guide.html#cb8-12" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb8-13"><a href="style-guide.html#cb8-13" tabindex="-1"></a>  <span class="fu">verb1</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb8-14"><a href="style-guide.html#cb8-14" tabindex="-1"></a>  <span class="fu">verb2</span>()</span></code></pre></div>
+</div>
+<div id="verb-arguments" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Verb arguments<a href="style-guide.html#verb-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Place short verb arguments on the same line as their verb.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="style-guide.html#cb9-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb9-2"><a href="style-guide.html#cb9-2" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="style-guide.html#cb9-3" tabindex="-1"></a>  <span class="fu">verb</span>(</span>
+<span id="cb9-4"><a href="style-guide.html#cb9-4" tabindex="-1"></a>    <span class="at">arg =</span> something_simple</span>
+<span id="cb9-5"><a href="style-guide.html#cb9-5" tabindex="-1"></a>  )</span>
+<span id="cb9-6"><a href="style-guide.html#cb9-6" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="style-guide.html#cb9-7" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb9-8"><a href="style-guide.html#cb9-8" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb9-9"><a href="style-guide.html#cb9-9" tabindex="-1"></a>  <span class="fu">verb</span>(<span class="at">arg =</span> something_simple)</span></code></pre></div>
+<ul>
+<li>When changing, creating, or renaming <em>multiple</em> variables with <code>mutate()</code>, <code>summarize()</code>, <code>select()</code>, etc. put each variable on a new line.
+<ul>
+<li>The opening parenthesis stays with the verb.</li>
+<li>The closing parenthesis gets its own line, and is aligned with the start of the verb name (Cmd/Ctrl + I will correctly do this for you).</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="style-guide.html#cb10-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb10-2"><a href="style-guide.html#cb10-2" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="style-guide.html#cb10-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-4"><a href="style-guide.html#cb10-4" tabindex="-1"></a>    <span class="at">new_var_1 =</span> something, <span class="at">new_var_2 =</span> something</span>
+<span id="cb10-5"><a href="style-guide.html#cb10-5" tabindex="-1"></a>  )</span>
+<span id="cb10-6"><a href="style-guide.html#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="style-guide.html#cb10-7" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb10-8"><a href="style-guide.html#cb10-8" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb10-9"><a href="style-guide.html#cb10-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_var_1 =</span> something, </span>
+<span id="cb10-10"><a href="style-guide.html#cb10-10" tabindex="-1"></a>         <span class="at">new_var_2 =</span> something</span>
+<span id="cb10-11"><a href="style-guide.html#cb10-11" tabindex="-1"></a>  )</span>
+<span id="cb10-12"><a href="style-guide.html#cb10-12" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="style-guide.html#cb10-13" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb10-14"><a href="style-guide.html#cb10-14" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb10-15"><a href="style-guide.html#cb10-15" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-16"><a href="style-guide.html#cb10-16" tabindex="-1"></a>    <span class="at">new_var_1 =</span> something, </span>
+<span id="cb10-17"><a href="style-guide.html#cb10-17" tabindex="-1"></a>    <span class="at">new_var_2 =</span> something</span>
+<span id="cb10-18"><a href="style-guide.html#cb10-18" tabindex="-1"></a>  )</span></code></pre></div>
+<ul>
+<li>Code should never extend beyond the 80-characters line. Sometimes, all you’ll need to do is put the function argument on a new line and indent.
+<ul>
+<li>Again, make sure that the first parenthesis stays with the verb, and the second is on its own line and is aligned with the verb name.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="style-guide.html#cb11-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb11-2"><a href="style-guide.html#cb11-2" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="style-guide.html#cb11-3" tabindex="-1"></a>  <span class="fu">verb</span>(<span class="at">very_long_argument_name_1 =</span> something_so_complicated_it_goes_past_the_line)</span>
+<span id="cb11-4"><a href="style-guide.html#cb11-4" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="style-guide.html#cb11-5" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb11-6"><a href="style-guide.html#cb11-6" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb11-7"><a href="style-guide.html#cb11-7" tabindex="-1"></a>  <span class="fu">verb</span>(</span>
+<span id="cb11-8"><a href="style-guide.html#cb11-8" tabindex="-1"></a>    <span class="at">very_long_argument_name_1 =</span> something_so_complicated_it_goes_past_the_line)</span>
+<span id="cb11-9"><a href="style-guide.html#cb11-9" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="style-guide.html#cb11-10" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb11-11"><a href="style-guide.html#cb11-11" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb11-12"><a href="style-guide.html#cb11-12" tabindex="-1"></a>  <span class="fu">verb</span>(</span>
+<span id="cb11-13"><a href="style-guide.html#cb11-13" tabindex="-1"></a>    <span class="at">very_long_argument_name_1 =</span> something_so_complicated_it_goes_past_the_line</span>
+<span id="cb11-14"><a href="style-guide.html#cb11-14" tabindex="-1"></a>)</span>
+<span id="cb11-15"><a href="style-guide.html#cb11-15" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="style-guide.html#cb11-16" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb11-17"><a href="style-guide.html#cb11-17" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb11-18"><a href="style-guide.html#cb11-18" tabindex="-1"></a>  <span class="fu">verb</span>(</span>
+<span id="cb11-19"><a href="style-guide.html#cb11-19" tabindex="-1"></a>    <span class="at">very_long_argument_name_1 =</span> something_so_complicated_it_goes_past_the_line</span>
+<span id="cb11-20"><a href="style-guide.html#cb11-20" tabindex="-1"></a>  )</span></code></pre></div>
+<ul>
+<li>If the verb has multiple arguments and those arguments exceed 80 characters, put each argument on its own line.</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="style-guide.html#cb12-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb12-2"><a href="style-guide.html#cb12-2" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="style-guide.html#cb12-3" tabindex="-1"></a>  <span class="fu">verb</span>(<span class="at">very_long_argument_name_1 =</span> something_complicated_1, <span class="at">very_long_argument_name_2 =</span> something_complicated_2)</span>
+<span id="cb12-4"><a href="style-guide.html#cb12-4" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="style-guide.html#cb12-5" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb12-6"><a href="style-guide.html#cb12-6" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb12-7"><a href="style-guide.html#cb12-7" tabindex="-1"></a>  <span class="fu">verb</span>(</span>
+<span id="cb12-8"><a href="style-guide.html#cb12-8" tabindex="-1"></a>    <span class="at">very_long_argument_name_1 =</span> something_complicated_1, <span class="at">very_long_argument_name_2 =</span> something_complicated_2</span>
+<span id="cb12-9"><a href="style-guide.html#cb12-9" tabindex="-1"></a>  )</span>
+<span id="cb12-10"><a href="style-guide.html#cb12-10" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="style-guide.html#cb12-11" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb12-12"><a href="style-guide.html#cb12-12" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb12-13"><a href="style-guide.html#cb12-13" tabindex="-1"></a>  <span class="fu">verb</span>(</span>
+<span id="cb12-14"><a href="style-guide.html#cb12-14" tabindex="-1"></a>    <span class="at">very_long_argument_name_1 =</span> something_complicated_1, </span>
+<span id="cb12-15"><a href="style-guide.html#cb12-15" tabindex="-1"></a>    <span class="at">very_long_argument_name_2 =</span> something_complicated_2</span>
+<span id="cb12-16"><a href="style-guide.html#cb12-16" tabindex="-1"></a>  )</span></code></pre></div>
+<ul>
+<li>Sometimes, just putting the arguments on their own lines won’t solve the length problem. In these cases, a more complicated indenting scheme is required. In the next section, we’ll walk through this scheme in more detail. For now, here are some examples.</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="style-guide.html#cb13-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb13-2"><a href="style-guide.html#cb13-2" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="style-guide.html#cb13-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">var =</span> <span class="fu">complicated_fun</span>(<span class="at">arg1 =</span> <span class="st">&quot;something&quot;</span>, <span class="at">arg2 =</span> <span class="st">&quot;something else&quot;</span>, <span class="at">arg3 =</span> <span class="st">&quot;another thing&quot;</span>))</span>
+<span id="cb13-4"><a href="style-guide.html#cb13-4" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="style-guide.html#cb13-5" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb13-6"><a href="style-guide.html#cb13-6" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb13-7"><a href="style-guide.html#cb13-7" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb13-8"><a href="style-guide.html#cb13-8" tabindex="-1"></a>    <span class="at">var =</span> </span>
+<span id="cb13-9"><a href="style-guide.html#cb13-9" tabindex="-1"></a>      <span class="fu">complicated_fun</span>(</span>
+<span id="cb13-10"><a href="style-guide.html#cb13-10" tabindex="-1"></a>        <span class="at">arg1 =</span> <span class="st">&quot;something&quot;</span>, </span>
+<span id="cb13-11"><a href="style-guide.html#cb13-11" tabindex="-1"></a>        <span class="at">arg2 =</span> <span class="st">&quot;something else&quot;</span>, </span>
+<span id="cb13-12"><a href="style-guide.html#cb13-12" tabindex="-1"></a>        <span class="at">arg3 =</span> <span class="st">&quot;another thing&quot;</span></span>
+<span id="cb13-13"><a href="style-guide.html#cb13-13" tabindex="-1"></a>      )</span>
+<span id="cb13-14"><a href="style-guide.html#cb13-14" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="style-guide.html#cb14-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb14-2"><a href="style-guide.html#cb14-2" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="style-guide.html#cb14-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> a_long_variable_name, <span class="at">y =</span> another_long_variable_name, <span class="at">fill =</span> a_third_long_variable_name), <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="style-guide.html#cb14-4" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
+<span id="cb14-5"><a href="style-guide.html#cb14-5" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="style-guide.html#cb14-6" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb14-7"><a href="style-guide.html#cb14-7" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb14-8"><a href="style-guide.html#cb14-8" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb14-9"><a href="style-guide.html#cb14-9" tabindex="-1"></a>    <span class="at">mapping =</span> </span>
+<span id="cb14-10"><a href="style-guide.html#cb14-10" tabindex="-1"></a>      <span class="fu">aes</span>(</span>
+<span id="cb14-11"><a href="style-guide.html#cb14-11" tabindex="-1"></a>        <span class="at">x =</span> a_long_variable_name, </span>
+<span id="cb14-12"><a href="style-guide.html#cb14-12" tabindex="-1"></a>        <span class="at">y =</span> another_long_variable_name, </span>
+<span id="cb14-13"><a href="style-guide.html#cb14-13" tabindex="-1"></a>        <span class="at">fill =</span> a_third_long_variable_name</span>
+<span id="cb14-14"><a href="style-guide.html#cb14-14" tabindex="-1"></a>      ), </span>
+<span id="cb14-15"><a href="style-guide.html#cb14-15" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span></span>
+<span id="cb14-16"><a href="style-guide.html#cb14-16" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-17"><a href="style-guide.html#cb14-17" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
+</div>
+<div id="an-indentation-example" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> An indentation example<a href="style-guide.html#an-indentation-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The indentation scheme introduced above can be confusing. Here, we’ll walk through an example so you can it in action.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="style-guide.html#cb15-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb15-2"><a href="style-guide.html#cb15-2" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="style-guide.html#cb15-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">var =</span> <span class="fu">complicated_fun</span>(<span class="at">arg1 =</span> <span class="st">&quot;something&quot;</span>, <span class="at">arg2 =</span> <span class="st">&quot;something else&quot;</span>, <span class="at">arg3 =</span> <span class="st">&quot;another thing&quot;</span>))</span></code></pre></div>
+<p><strong>Step 1</strong></p>
+<p>Put the contents of the verb on its own line.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="style-guide.html#cb16-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="style-guide.html#cb16-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-3"><a href="style-guide.html#cb16-3" tabindex="-1"></a>    <span class="at">var =</span> <span class="fu">complicated_fun</span>(<span class="at">arg1 =</span> <span class="st">&quot;something&quot;</span>, <span class="at">arg2 =</span> <span class="st">&quot;something else&quot;</span>, <span class="at">arg3 =</span> <span class="st">&quot;another thing&quot;</span>)</span>
+<span id="cb16-4"><a href="style-guide.html#cb16-4" tabindex="-1"></a>  )</span></code></pre></div>
+<p>If none of the code goes over the 80-character line, you’re done! In this case, the code still exceeds 80 characters, so we’ll need to proceed to <strong>Step 2</strong>.</p>
+<p><strong>Step 2</strong></p>
+<p>Add a newline after the “=”.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="style-guide.html#cb17-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="style-guide.html#cb17-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-3"><a href="style-guide.html#cb17-3" tabindex="-1"></a>    <span class="at">var =</span> </span>
+<span id="cb17-4"><a href="style-guide.html#cb17-4" tabindex="-1"></a>      <span class="fu">complicated_fun</span>(<span class="at">arg1 =</span> <span class="st">&quot;something&quot;</span>, <span class="at">arg2 =</span> <span class="st">&quot;something else&quot;</span>, <span class="at">arg3 =</span> <span class="st">&quot;another thing&quot;</span>)</span>
+<span id="cb17-5"><a href="style-guide.html#cb17-5" tabindex="-1"></a>  )</span></code></pre></div>
+<p>Again, if none of the code goes over the line, you’re done. Our code still surpasses 80-characters, so we’ll head to <strong>Step 3</strong>.</p>
+<p><strong>Step 3</strong></p>
+<p>Give each function argument its own line.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="style-guide.html#cb18-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="style-guide.html#cb18-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb18-3"><a href="style-guide.html#cb18-3" tabindex="-1"></a>    <span class="at">var =</span> </span>
+<span id="cb18-4"><a href="style-guide.html#cb18-4" tabindex="-1"></a>      <span class="fu">complicated_fun</span>(</span>
+<span id="cb18-5"><a href="style-guide.html#cb18-5" tabindex="-1"></a>        <span class="at">arg1 =</span> <span class="st">&quot;something&quot;</span>, </span>
+<span id="cb18-6"><a href="style-guide.html#cb18-6" tabindex="-1"></a>        <span class="at">arg2 =</span> <span class="st">&quot;something else&quot;</span>, </span>
+<span id="cb18-7"><a href="style-guide.html#cb18-7" tabindex="-1"></a>        <span class="at">arg3 =</span> <span class="st">&quot;another thing&quot;</span></span>
+<span id="cb18-8"><a href="style-guide.html#cb18-8" tabindex="-1"></a>      )</span>
+<span id="cb18-9"><a href="style-guide.html#cb18-9" tabindex="-1"></a>  )</span></code></pre></div>
+<p>Now, everything is under 80 characters and the code is easy to read.</p>
+<p>There are also situations where you’ll want to put each function argument on its own line even if the code doesn’t extend past 80 characters. functions that should usually have each argument on its own line include <code>if_else()</code>, <code>recode()</code>, and <code>case_when()</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="style-guide.html#cb19-1" tabindex="-1"></a><span class="co"># Not great</span></span>
+<span id="cb19-2"><a href="style-guide.html#cb19-2" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href="style-guide.html#cb19-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb19-4"><a href="style-guide.html#cb19-4" tabindex="-1"></a>    <span class="at">var =</span> <span class="fu">recode</span>(<span class="at">v1 =</span> <span class="st">&quot;something&quot;</span>, <span class="at">v2 =</span> <span class="st">&quot;something else&quot;</span>, <span class="at">v3 =</span> <span class="st">&quot;another thing&quot;</span>)</span>
+<span id="cb19-5"><a href="style-guide.html#cb19-5" tabindex="-1"></a>  )</span>
+<span id="cb19-6"><a href="style-guide.html#cb19-6" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="style-guide.html#cb19-7" tabindex="-1"></a><span class="co"># Better</span></span>
+<span id="cb19-8"><a href="style-guide.html#cb19-8" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb19-9"><a href="style-guide.html#cb19-9" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb19-10"><a href="style-guide.html#cb19-10" tabindex="-1"></a>    <span class="at">var =</span> </span>
+<span id="cb19-11"><a href="style-guide.html#cb19-11" tabindex="-1"></a>      <span class="fu">recode</span>(</span>
+<span id="cb19-12"><a href="style-guide.html#cb19-12" tabindex="-1"></a>        <span class="at">v1 =</span> <span class="st">&quot;something&quot;</span>, </span>
+<span id="cb19-13"><a href="style-guide.html#cb19-13" tabindex="-1"></a>        <span class="at">v2 =</span> <span class="st">&quot;something else&quot;</span>, </span>
+<span id="cb19-14"><a href="style-guide.html#cb19-14" tabindex="-1"></a>        <span class="at">v3 =</span> <span class="st">&quot;another thing&quot;</span></span>
+<span id="cb19-15"><a href="style-guide.html#cb19-15" tabindex="-1"></a>      )</span>
+<span id="cb19-16"><a href="style-guide.html#cb19-16" tabindex="-1"></a>  )</span></code></pre></div>
+<p>Remember to line up the closing parenthesis with the start of the function name. You can always check your indenting by highlighting the code and doing Cmd/Ctrl + I.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="documentation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rstudio-snippets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/dcl-docs/workflow/edit/master/style-guide.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Project setup | Workflow</title>
+  <meta name="description" content="A collection of readings on data science workflow." />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Project setup | Workflow" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A collection of readings on data science workflow." />
+  <meta name="github-repo" content="dcl-docs/workflow" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Project setup | Workflow" />
+  
+  <meta name="twitter:description" content="A collection of readings on data science workflow." />
+  
+
+<meta name="author" content="Sara Altman, Bill Behrman, Hadley Wickham" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="project-introduction.html"/>
+<link rel="next" href="project-organization.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Workflow</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="part"><span><b>Setup</b></span></li>
+<li class="chapter" data-level="1" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>1</b> Software installation</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="software.html"><a href="software.html#mac-computers"><i class="fa fa-check"></i><b>1.1</b> Mac computers</a></li>
+<li class="chapter" data-level="1.2" data-path="software.html"><a href="software.html#github"><i class="fa fa-check"></i><b>1.2</b> GitHub</a></li>
+<li class="chapter" data-level="1.3" data-path="software.html"><a href="software.html#git"><i class="fa fa-check"></i><b>1.3</b> Git</a></li>
+<li class="chapter" data-level="1.4" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>1.4</b> R</a></li>
+<li class="chapter" data-level="1.5" data-path="software.html"><a href="software.html#rstudio"><i class="fa fa-check"></i><b>1.5</b> RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="software.html"><a href="software.html#r-packages"><i class="fa fa-check"></i><b>1.6</b> R packages</a></li>
+<li class="chapter" data-level="1.7" data-path="software.html"><a href="software.html#update-r-packages"><i class="fa fa-check"></i><b>1.7</b> Update R packages</a></li>
+<li class="chapter" data-level="1.8" data-path="software.html"><a href="software.html#configure-rstudio"><i class="fa fa-check"></i><b>1.8</b> Configure RStudio</a></li>
+</ul></li>
+<li class="part"><span><b>Coding</b></span></li>
+<li class="chapter" data-level="2" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>2</b> Documentation</a></li>
+<li class="chapter" data-level="3" data-path="style-guide.html"><a href="style-guide.html"><i class="fa fa-check"></i><b>3</b> Style guide</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="style-guide.html"><a href="style-guide.html#why-does-style-matter"><i class="fa fa-check"></i><b>3.1</b> Why does style matter?</a></li>
+<li class="chapter" data-level="3.2" data-path="style-guide.html"><a href="style-guide.html#style-helpers"><i class="fa fa-check"></i><b>3.2</b> Style helpers</a></li>
+<li class="chapter" data-level="3.3" data-path="style-guide.html"><a href="style-guide.html#spacing"><i class="fa fa-check"></i><b>3.3</b> Spacing</a></li>
+<li class="chapter" data-level="3.4" data-path="style-guide.html"><a href="style-guide.html#pipes"><i class="fa fa-check"></i><b>3.4</b> Pipes</a></li>
+<li class="chapter" data-level="3.5" data-path="style-guide.html"><a href="style-guide.html#verb-arguments"><i class="fa fa-check"></i><b>3.5</b> Verb arguments</a></li>
+<li class="chapter" data-level="3.6" data-path="style-guide.html"><a href="style-guide.html#an-indentation-example"><i class="fa fa-check"></i><b>3.6</b> An indentation example</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rstudio-snippets.html"><a href="rstudio-snippets.html"><i class="fa fa-check"></i><b>4</b> RStudio code snippets</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="rstudio-snippets.html"><a href="rstudio-snippets.html#tv-snippet"><i class="fa fa-check"></i><b>4.1</b> <code>tv</code> snippet</a></li>
+<li class="chapter" data-level="4.2" data-path="rstudio-snippets.html"><a href="rstudio-snippets.html#rscript-snippet"><i class="fa fa-check"></i><b>4.2</b> <code>rscript</code> snippet</a></li>
+</ul></li>
+<li class="part"><span><b>Projects</b></span></li>
+<li class="chapter" data-level="5" data-path="project-introduction.html"><a href="project-introduction.html"><i class="fa fa-check"></i><b>5</b> Project introduction</a></li>
+<li class="chapter" data-level="6" data-path="project-setup.html"><a href="project-setup.html"><i class="fa fa-check"></i><b>6</b> Project setup</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="project-setup.html"><a href="project-setup.html#create-a-project"><i class="fa fa-check"></i><b>6.1</b> Create a project</a></li>
+<li class="chapter" data-level="6.2" data-path="project-setup.html"><a href="project-setup.html#setup-github"><i class="fa fa-check"></i><b>6.2</b> Setup GitHub</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="project-setup.html"><a href="project-setup.html#github-token"><i class="fa fa-check"></i><b>6.2.1</b> GitHub token</a></li>
+<li class="chapter" data-level="6.2.2" data-path="project-setup.html"><a href="project-setup.html#use_git"><i class="fa fa-check"></i><b>6.2.2</b> <code>use_git()</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="project-setup.html"><a href="project-setup.html#use_github"><i class="fa fa-check"></i><b>6.2.3</b> <code>use_github()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>7</b> Project organization</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#directories"><i class="fa fa-check"></i><b>7.1</b> Directories</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="project-organization.html"><a href="project-organization.html#data-raw"><i class="fa fa-check"></i><b>7.1.1</b> data-raw</a></li>
+<li class="chapter" data-level="7.1.2" data-path="project-organization.html"><a href="project-organization.html#scripts"><i class="fa fa-check"></i><b>7.1.2</b> scripts</a></li>
+<li class="chapter" data-level="7.1.3" data-path="project-organization.html"><a href="project-organization.html#data"><i class="fa fa-check"></i><b>7.1.3</b> data</a></li>
+<li class="chapter" data-level="7.1.4" data-path="project-organization.html"><a href="project-organization.html#docs"><i class="fa fa-check"></i><b>7.1.4</b> docs</a></li>
+<li class="chapter" data-level="7.1.5" data-path="project-organization.html"><a href="project-organization.html#eda"><i class="fa fa-check"></i><b>7.1.5</b> eda</a></li>
+<li class="chapter" data-level="7.1.6" data-path="project-organization.html"><a href="project-organization.html#reports"><i class="fa fa-check"></i><b>7.1.6</b> reports</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#file-paths"><i class="fa fa-check"></i><b>7.2</b> File paths</a></li>
+<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#r-markdown-template"><i class="fa fa-check"></i><b>7.3</b> R Markdown template</a></li>
+<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#make"><i class="fa fa-check"></i><b>7.4</b> Make</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="project-organization.html"><a href="project-organization.html#create-a-makefile"><i class="fa fa-check"></i><b>7.4.1</b> Create a makefile</a></li>
+<li class="chapter" data-level="7.4.2" data-path="project-organization.html"><a href="project-organization.html#run-make"><i class="fa fa-check"></i><b>7.4.2</b> Run Make</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="scripts.html"><a href="scripts.html"><i class="fa fa-check"></i><b>8</b> Scripts</a></li>
+<li class="part"><span><b>Resources</b></span></li>
+<li class="chapter" data-level="9" data-path="getting-help.html"><a href="getting-help.html"><i class="fa fa-check"></i><b>9</b> Getting help</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="getting-help.html"><a href="getting-help.html#help-yourself"><i class="fa fa-check"></i><b>9.1</b> Help yourself</a></li>
+<li class="chapter" data-level="9.2" data-path="getting-help.html"><a href="getting-help.html#get-help-from-others"><i class="fa fa-check"></i><b>9.2</b> Get help from others</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="getting-help.html"><a href="getting-help.html#reprex-pkg"><i class="fa fa-check"></i><b>9.2.1</b> The reprex package</a></li>
+<li class="chapter" data-level="9.2.2" data-path="getting-help.html"><a href="getting-help.html#more-resources-on-asking-good-questions"><i class="fa fa-check"></i><b>9.2.2</b> More resources on asking good questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="learning-more.html"><a href="learning-more.html"><i class="fa fa-check"></i><b>10</b> Learning more</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Workflow</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="project-setup" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Project setup<a href="project-setup.html#project-setup" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="create-a-project" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Create a project<a href="project-setup.html#create-a-project" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We recommend creating one directory for each project. All your data and files for your project will live in this one directory.</p>
+<p>Ideally, you’ll organize your files in this directory in a principled way. We’ve created a project template with our suggested folder organization. If you haven’t already, install the dcl package:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="project-setup.html#cb23-1" tabindex="-1"></a><span class="co"># install.packages(&quot;remotes&quot;)</span></span>
+<span id="cb23-2"><a href="project-setup.html#cb23-2" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;stanford-datalab/dcl&quot;</span>)</span></code></pre></div>
+<p>Now, you can run</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="project-setup.html#cb24-1" tabindex="-1"></a>dcl<span class="sc">::</span><span class="fu">create_data_project</span>(<span class="at">path =</span> <span class="st">&quot;PATH/TO/PROJECT&quot;</span>)</span></code></pre></div>
+<p>to create a directory at your supplied path with the following files and directories:</p>
+<ul>
+<li><strong>data</strong>: cleaned data</li>
+<li><strong>data-raw</strong>: raw data</li>
+<li><strong>docs</strong>: data documentation and notes</li>
+<li><strong>eda</strong>: exploratory data analysis on your cleaned data</li>
+<li><strong>scripts</strong>: data manipulation scripts</li>
+<li><strong>reports</strong>: findings to present to others</li>
+<li><strong>Makefile</strong></li>
+<li><strong>.gitignore</strong></li>
+<li><strong>README.md</strong></li>
+</ul>
+<p>We’ll discuss how to use these directories and files in the next chapter.</p>
+<p>By default, <code>dcl::create_data_project()</code> creates an RStudio project for the directory. If you don’t want to create an RStudio project, set the <code>project</code> argument to <code>FALSE</code>:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="project-setup.html#cb25-1" tabindex="-1"></a>dcl<span class="sc">::</span><span class="fu">create_data_project</span>(<span class="at">path =</span> <span class="st">&quot;PATH/TO/PROJECT&quot;</span>, <span class="at">project =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Note that it’s generally a bad idea to nest RStudio projects. If you find yourself wanting to use our folder organization inside a different RStudio project, you’ll probably want <code>project = FALSE</code>.</p>
+</div>
+<div id="setup-github" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Setup GitHub<a href="project-setup.html#setup-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We recommend using GitHub for all your data work. Generally, you’ll want one repository per project.</p>
+<p>Here, we’ll explain how to setup Git and GitHub for your new project. The following steps will only work if you set <code>project = TRUE</code> in the previous section (they require a .Rproj file). However, if you didn’t want an RStudio project for your project, you likely also don’t want a GitHub repository.</p>
+<div id="github-token" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> GitHub token<a href="project-setup.html#github-token" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You will need a GitHub personal access token in order to setup Git and GitHub from RStudio. Open <a href="http://github.com/">GitHub</a> in your browser. Then:</p>
+<ul>
+<li>Click on your profile picture in the upper righthand corner, then click on <em>Settings</em>.</li>
+</ul>
+<p><img src="images/project-workflow/github-pat-1.png" width="211" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Then, go to <em>Developer settings</em> &gt; <em>Personal access tokens</em> &gt; <em>Tokens (classic)</em>.</li>
+<li>Click <em>Generate new token</em>.</li>
+</ul>
+<p><img src="images/project-workflow/github-pat-2.png" width="858" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Name your token something like <em>RStudio</em> or <em>R</em>. Under <em>Scopes</em>, select <em>repo</em> (You can select other scopes if you anticipate using the GitHub API in more scenarios.)</li>
+</ul>
+<p><img src="images/project-workflow/github-pat-3.png" width="675" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Scroll down to the bottom, then click <em>Generate token</em>.</li>
+</ul>
+<p><img src="images/project-workflow/github-pat-4.png" width="118" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Copy the resulting token to your clipboard and return to RStudio.</li>
+<li>From the RStudio console, open your .Renviron file with</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="project-setup.html#cb26-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>()</span></code></pre></div>
+<ul>
+<li>Add the following line to your .Renviron file, replacing <code>YOUR_TOKEN</code> with the token you copied earlier.</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="project-setup.html#cb27-1" tabindex="-1"></a>GITHUB_PAT<span class="ot">=</span>YOUR_TOKEN</span></code></pre></div>
+<ul>
+<li>Save the file.</li>
+<li>Restart R (<em>Cmd/Ctrl</em> + <em>Shift</em> + <em>0</em>).</li>
+</ul>
+</div>
+<div id="use_git" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> <code>use_git()</code><a href="project-setup.html#use_git" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now, we can create a Git repository for your project.</p>
+<p>If you haven’t already, open your project in RStudio. Then, in the console, run</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="project-setup.html#cb28-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git</span>()</span></code></pre></div>
+<p><code>use_git()</code> will set up a Git repository for your project, then ask you if you want to make an initial commit:</p>
+<p><img src="images/project-workflow/use-git-1.png" width="532" style="display: block; margin: auto;" /></p>
+<p>Enter the number that corresponds to the <em>Yes</em> option. Here, that’s <code>3</code>, but it might be different for you.</p>
+<p>Next, you’ll be prompted to restart RStudio. Select the <em>Yes</em> option.</p>
+</div>
+<div id="use_github" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> <code>use_github()</code><a href="project-setup.html#use_github" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>use_git()</code> initializes a Git repository, but you’ll still need to connect that repository to GitHub. To do so, run</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="project-setup.html#cb29-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>()</span></code></pre></div>
+<p>Note that <code>use_github()</code> has multiple optional arguments that allow you to, for example, create the repository under an organization or make the repository private.</p>
+<p>You’ll be prompted for a git protocol. You’ll probably want ssh.</p>
+<p><img src="images/project-workflow/use-github-1.png" width="548" style="display: block; margin: auto;" /></p>
+<p>Next, you’ll be prompted to verify the repository name and description. Say <em>Yes</em> unless you’re unhappy with them (you can always change them later).</p>
+<p>You might get the following error:</p>
+<p><img src="images/project-workflow/use-github-2.png" width="506" style="display: block; margin: auto;" /></p>
+<ul>
+<li>If so, copy the recommended command.</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="project-setup.html#cb30-1" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--set-upstream</span> origin master</span></code></pre></div>
+<ul>
+<li><p>Then, open Terminal, navigate to your project directory, paste in your copied command, and press enter. This command sets the default location to which <code>git push</code> will push.</p></li>
+<li><p>Earlier, <code>use_github()</code> opened your GitHub repository in the browser. To see the result of your push, refresh the page. Your files should appear.</p></li>
+</ul>
+<p>Your setup is complete! In the next chapter, we’ll go into more detail about how to use the folders and makefile created by <code>dcl::create_data_project()</code>.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="project-introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="project-organization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/dcl-docs/workflow/edit/master/project-setup.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

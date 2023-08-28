@@ -1,0 +1,85 @@
+
+# Scripts
+
+If you're coming from the world of R Markdown, you can think of an R script like one long code chunk. R scripts are useful if you don't need the hybrid between text and code offered by R Markdown. Often, this happens when you're reading in and cleaning data. 
+
+We've designed a short R script template to help create organized scripts. If you haven't already, create a snippet for the template by following the steps in Chapter 4. If you're a DCL student, you likely did this in the first week of class. 
+
+You can open a new R script by clicking on the new file button in the upper-left corner of RStudio, then on _R Script_. Note that R Scripts have the file extension _.R_.
+
+<img src="images/project-workflow/r-script.png" width="2867" style="display: block; margin: auto;" />
+
+Once in the R script, start typing `rscript` (the name of the snippet), then hit _tab_. 
+
+<img src="images/rstudio-snippets/rscript_snippet_popup.png" width="7645" style="display: block; margin: auto;" />
+
+Your script should now have the following template code:
+
+
+```r
+# Description
+
+# Author: Name
+# Version: 2023-08-08
+
+# Packages
+library(tidyverse)
+
+# Parameters
+
+#===============================================================================
+
+# Code
+
+```
+
+This is our script template. Replace `Description` with a brief description of the script and `Name` with your name.
+
+All parameters go in the parameters section, between `# Parameters` and the line of `===`. All code goes below the `===`. The point of this division is to clearly separate parameters, which might change later on, from code. Make parameters for features that are contingent (e.g., the year you're using to filter your data), especially if you use that feature in multiple locations throughout your script. 
+
+Then, add your code. As mentioned earlier, a common use for R scripts is reading in and writing out data. Here's the code from an [example script](https://github.com/dcl-docs/project-example/blob/master/scripts/light_mp.R) that does exactly that.
+
+
+```r
+# Transforms species data on light by date at McCormick Place in Chicago
+
+# Source: 
+# Winger BM, Weeks BC, Farnsworth A, Jones AW, Hennen M, Willard DE (2019) 
+# Data from: Nocturnal flight-calling behavior predicts vulnerability to 
+# artificial light in migratory birds. Dryad Digital Repository. 
+# https://doi.org/10.5061/dryad.8rr0498
+
+# Authors: Sara Altman, Bill Behrman
+# Version: 2023-08-08
+
+# Packages
+library(tidyverse)
+
+# Parameters
+  # Input file
+file_raw <- here::here("data-raw/light_mp.csv")
+  # Output file
+file_out <- here::here("data/light_mp.rds")
+
+#===============================================================================
+
+file_raw |> 
+  read_csv(
+    col_types = cols(Date = col_date(), Light_Score = col_double())
+  ) |> 
+  rename_with(str_to_lower) |> 
+  drop_na() |> 
+  group_by(date) |> 
+  summarize(light_score = round(mean(light_score))) |>
+  write_rds(file_out)
+```
+
+This script reads in data from `file_raw`, does some light manipulation, and then writes out the files to `file_out`. 
+
+You can run your whole script by clicking _Source_ in the upper-right corner, but you can also run R script code with all the same keyboard shortcuts you use to run code in R Markdown chunks. 
+
+You can also run your script from the command line. Open Terminal, navigate to your script's directory, then run
+
+`Rscript PATH_TO_YOUR_SCRIPT`
+
+This is useful if you're working with a lot of data and care about speed, because you can run your script without dealing with any overhead caused by RStudio.

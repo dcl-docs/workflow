@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Project organization | Workflow</title>
+  <meta name="description" content="A collection of readings on data science workflow." />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Project organization | Workflow" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A collection of readings on data science workflow." />
+  <meta name="github-repo" content="dcl-docs/workflow" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Project organization | Workflow" />
+  
+  <meta name="twitter:description" content="A collection of readings on data science workflow." />
+  
+
+<meta name="author" content="Sara Altman, Bill Behrman, Hadley Wickham" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="project-setup.html"/>
+<link rel="next" href="scripts.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Workflow</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="part"><span><b>Setup</b></span></li>
+<li class="chapter" data-level="1" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>1</b> Software installation</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="software.html"><a href="software.html#mac-computers"><i class="fa fa-check"></i><b>1.1</b> Mac computers</a></li>
+<li class="chapter" data-level="1.2" data-path="software.html"><a href="software.html#github"><i class="fa fa-check"></i><b>1.2</b> GitHub</a></li>
+<li class="chapter" data-level="1.3" data-path="software.html"><a href="software.html#git"><i class="fa fa-check"></i><b>1.3</b> Git</a></li>
+<li class="chapter" data-level="1.4" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>1.4</b> R</a></li>
+<li class="chapter" data-level="1.5" data-path="software.html"><a href="software.html#rstudio"><i class="fa fa-check"></i><b>1.5</b> RStudio</a></li>
+<li class="chapter" data-level="1.6" data-path="software.html"><a href="software.html#r-packages"><i class="fa fa-check"></i><b>1.6</b> R packages</a></li>
+<li class="chapter" data-level="1.7" data-path="software.html"><a href="software.html#update-r-packages"><i class="fa fa-check"></i><b>1.7</b> Update R packages</a></li>
+<li class="chapter" data-level="1.8" data-path="software.html"><a href="software.html#configure-rstudio"><i class="fa fa-check"></i><b>1.8</b> Configure RStudio</a></li>
+</ul></li>
+<li class="part"><span><b>Coding</b></span></li>
+<li class="chapter" data-level="2" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>2</b> Documentation</a></li>
+<li class="chapter" data-level="3" data-path="style-guide.html"><a href="style-guide.html"><i class="fa fa-check"></i><b>3</b> Style guide</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="style-guide.html"><a href="style-guide.html#why-does-style-matter"><i class="fa fa-check"></i><b>3.1</b> Why does style matter?</a></li>
+<li class="chapter" data-level="3.2" data-path="style-guide.html"><a href="style-guide.html#style-helpers"><i class="fa fa-check"></i><b>3.2</b> Style helpers</a></li>
+<li class="chapter" data-level="3.3" data-path="style-guide.html"><a href="style-guide.html#spacing"><i class="fa fa-check"></i><b>3.3</b> Spacing</a></li>
+<li class="chapter" data-level="3.4" data-path="style-guide.html"><a href="style-guide.html#pipes"><i class="fa fa-check"></i><b>3.4</b> Pipes</a></li>
+<li class="chapter" data-level="3.5" data-path="style-guide.html"><a href="style-guide.html#verb-arguments"><i class="fa fa-check"></i><b>3.5</b> Verb arguments</a></li>
+<li class="chapter" data-level="3.6" data-path="style-guide.html"><a href="style-guide.html#an-indentation-example"><i class="fa fa-check"></i><b>3.6</b> An indentation example</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rstudio-snippets.html"><a href="rstudio-snippets.html"><i class="fa fa-check"></i><b>4</b> RStudio code snippets</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="rstudio-snippets.html"><a href="rstudio-snippets.html#tv-snippet"><i class="fa fa-check"></i><b>4.1</b> <code>tv</code> snippet</a></li>
+<li class="chapter" data-level="4.2" data-path="rstudio-snippets.html"><a href="rstudio-snippets.html#rscript-snippet"><i class="fa fa-check"></i><b>4.2</b> <code>rscript</code> snippet</a></li>
+</ul></li>
+<li class="part"><span><b>Projects</b></span></li>
+<li class="chapter" data-level="5" data-path="project-introduction.html"><a href="project-introduction.html"><i class="fa fa-check"></i><b>5</b> Project introduction</a></li>
+<li class="chapter" data-level="6" data-path="project-setup.html"><a href="project-setup.html"><i class="fa fa-check"></i><b>6</b> Project setup</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="project-setup.html"><a href="project-setup.html#create-a-project"><i class="fa fa-check"></i><b>6.1</b> Create a project</a></li>
+<li class="chapter" data-level="6.2" data-path="project-setup.html"><a href="project-setup.html#setup-github"><i class="fa fa-check"></i><b>6.2</b> Setup GitHub</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="project-setup.html"><a href="project-setup.html#github-token"><i class="fa fa-check"></i><b>6.2.1</b> GitHub token</a></li>
+<li class="chapter" data-level="6.2.2" data-path="project-setup.html"><a href="project-setup.html#use_git"><i class="fa fa-check"></i><b>6.2.2</b> <code>use_git()</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="project-setup.html"><a href="project-setup.html#use_github"><i class="fa fa-check"></i><b>6.2.3</b> <code>use_github()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>7</b> Project organization</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="project-organization.html"><a href="project-organization.html#directories"><i class="fa fa-check"></i><b>7.1</b> Directories</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="project-organization.html"><a href="project-organization.html#data-raw"><i class="fa fa-check"></i><b>7.1.1</b> data-raw</a></li>
+<li class="chapter" data-level="7.1.2" data-path="project-organization.html"><a href="project-organization.html#scripts"><i class="fa fa-check"></i><b>7.1.2</b> scripts</a></li>
+<li class="chapter" data-level="7.1.3" data-path="project-organization.html"><a href="project-organization.html#data"><i class="fa fa-check"></i><b>7.1.3</b> data</a></li>
+<li class="chapter" data-level="7.1.4" data-path="project-organization.html"><a href="project-organization.html#docs"><i class="fa fa-check"></i><b>7.1.4</b> docs</a></li>
+<li class="chapter" data-level="7.1.5" data-path="project-organization.html"><a href="project-organization.html#eda"><i class="fa fa-check"></i><b>7.1.5</b> eda</a></li>
+<li class="chapter" data-level="7.1.6" data-path="project-organization.html"><a href="project-organization.html#reports"><i class="fa fa-check"></i><b>7.1.6</b> reports</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="project-organization.html"><a href="project-organization.html#file-paths"><i class="fa fa-check"></i><b>7.2</b> File paths</a></li>
+<li class="chapter" data-level="7.3" data-path="project-organization.html"><a href="project-organization.html#r-markdown-template"><i class="fa fa-check"></i><b>7.3</b> R Markdown template</a></li>
+<li class="chapter" data-level="7.4" data-path="project-organization.html"><a href="project-organization.html#make"><i class="fa fa-check"></i><b>7.4</b> Make</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="project-organization.html"><a href="project-organization.html#create-a-makefile"><i class="fa fa-check"></i><b>7.4.1</b> Create a makefile</a></li>
+<li class="chapter" data-level="7.4.2" data-path="project-organization.html"><a href="project-organization.html#run-make"><i class="fa fa-check"></i><b>7.4.2</b> Run Make</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="scripts.html"><a href="scripts.html"><i class="fa fa-check"></i><b>8</b> Scripts</a></li>
+<li class="part"><span><b>Resources</b></span></li>
+<li class="chapter" data-level="9" data-path="getting-help.html"><a href="getting-help.html"><i class="fa fa-check"></i><b>9</b> Getting help</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="getting-help.html"><a href="getting-help.html#help-yourself"><i class="fa fa-check"></i><b>9.1</b> Help yourself</a></li>
+<li class="chapter" data-level="9.2" data-path="getting-help.html"><a href="getting-help.html#get-help-from-others"><i class="fa fa-check"></i><b>9.2</b> Get help from others</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="getting-help.html"><a href="getting-help.html#reprex-pkg"><i class="fa fa-check"></i><b>9.2.1</b> The reprex package</a></li>
+<li class="chapter" data-level="9.2.2" data-path="getting-help.html"><a href="getting-help.html#more-resources-on-asking-good-questions"><i class="fa fa-check"></i><b>9.2.2</b> More resources on asking good questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="learning-more.html"><a href="learning-more.html"><i class="fa fa-check"></i><b>10</b> Learning more</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Workflow</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="project-organization" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Project organization<a href="project-organization.html#project-organization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this chapter, we’ll talk about how to organize your project. We’ll discuss how to use the project template created by <code>dcl::dcl_data_project()</code>, explain an easier way to handle file paths, and walk you through the creation of a makefile.</p>
+<div id="directories" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Directories<a href="project-organization.html#directories" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here’s an overview of the relationships between the various directories created by <code>dcl::dcl_data_project()</code>:</p>
+<p><img src="images/project-workflow/folder-organization.png" width="621" style="display: block; margin: auto;" /></p>
+<p>To help explain the different directories, we’ll refer to our <a href="https://github.com/dcl-docs/project-example">project example</a>, which uses <a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.8rr0498">data</a> on migratory birds’ collisions with lighted buildings in Chicago.</p>
+<div id="data-raw" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> data-raw<a href="project-organization.html#data-raw" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Put all raw data files (i.e., the data that you haven’t touched yet) in <strong>data-raw</strong>.</p>
+<p>For each data file, come up with a short, but descriptive, name. You’ll use these names to name other files. For example, our <a href="https://github.com/dcl-docs/project-example/tree/master/data-raw">example data-raw</a> contains the following raw data files:</p>
+<ul>
+<li><strong>birds.txt</strong></li>
+<li><strong>collisions.csv</strong></li>
+<li><strong>light_mp.csv</strong></li>
+</ul>
+</div>
+<div id="scripts" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> scripts<a href="project-organization.html#scripts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data-manipulation scripts belong in <strong>scripts</strong>. We’ll talk more about R scripts in the next chapter, but you can also take a look at our <a href="https://github.com/dcl-docs/project-example/tree/master/scripts">example scripts</a>.</p>
+<p>Create one script for each raw data source. Each script should read in a raw data file, process it, and then write the cleaned data to an .rds file in <strong>data</strong>.</p>
+<p>Name each script to correspond to the data file it creates. For example, the script <strong>collisions.R</strong> reads in <strong>collisions.csv</strong>, cleans the data, then writes <strong>collisions.rds</strong> to <strong>data</strong>.</p>
+<p>If you want to join multiple data sources, create an additional script that joins the cleaned data files. For example, <strong>bird_collisions_light.R</strong> joins <strong>birds.rds</strong>, <strong>collisions.rds</strong>, and <strong>light_mp.rds</strong>, and writes to <strong>bird_collisions_light.rds</strong>. As the diagram points out, your joining scripts can join cleaned data from <strong>data</strong>.</p>
+</div>
+<div id="data" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> data<a href="project-organization.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>data</strong> contains cleaned data (likely in .rds format) that is ready to analyze. The name of each .rds file should correspond to the script that created it. For example:</p>
+<ul>
+<li><strong>collisions.rds</strong></li>
+<li><strong>birds.rds</strong></li>
+<li><strong>light_mp.rds</strong></li>
+<li><strong>bird_collisions_light.rds</strong></li>
+</ul>
+</div>
+<div id="docs" class="section level3 hasAnchor" number="7.1.4">
+<h3><span class="header-section-number">7.1.4</span> docs<a href="project-organization.html#docs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>docs</strong> folder is for any documentation files you used to understand the data, as well as for any notes you have on the data or your plan for analysis.</p>
+</div>
+<div id="eda" class="section level3 hasAnchor" number="7.1.5">
+<h3><span class="header-section-number">7.1.5</span> eda<a href="project-organization.html#eda" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>eda</strong> folder contains R Markdown files with your exploratory data analysis (EDA) work. As a start, perform EDA on each dataset and name the R Markdown files accordingly. For example, <strong>birds.Rmd</strong> performs EDA on just <strong>birds.rds</strong>, <strong>bird_collisions_light.Rmd</strong> performs EDA on just <strong>bird_collisions_light.rds</strong>, etc. Once you understand your data, you can perform further EDA studies, each in an R Markdown file with a descriptive name. This separation is intended to help you organize your EDA, which can become unwieldy if placed in a single file.</p>
+</div>
+<div id="reports" class="section level3 hasAnchor" number="7.1.6">
+<h3><span class="header-section-number">7.1.6</span> reports<a href="project-organization.html#reports" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>reports</strong> is for your final reports, shareable analysis, etc. The files here don’t need to be named according to the convention of the other files. For example, our <strong>reports</strong> folder just has one report called <strong>report.Rmd</strong>.</p>
+</div>
+</div>
+<div id="file-paths" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> File paths<a href="project-organization.html#file-paths" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <a href="https://here.r-lib.org/">here</a> package simplifies the work of specifying file paths. The function <code>here::here()</code> allows you to specify a file path relative to the directory of your .Rproj file, no matter what folder you’re in. For example, no matter where you are in your project, you can give the file path of <strong>collisions.rds</strong> as <code>here::here("data/collisions.rds")</code>.</p>
+<p>See the our <a href="https://github.com/dcl-docs/project-example/tree/master/scripts">scripts</a>, <a href="https://github.com/dcl-docs/project-example/tree/master/eda">EDA documents</a>, and <a href="https://github.com/dcl-docs/project-example/tree/master/reports">reports</a> for more examples.</p>
+</div>
+<div id="r-markdown-template" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> R Markdown template<a href="project-organization.html#r-markdown-template" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The dcl package also contains a R Markdown template to use for your EDA files and reports. To use the template:</p>
+<ul>
+<li>Click on the new file button in the top-left corner of RStudio.</li>
+<li>Select <em>R Markdown…</em> &gt; <em>From Template</em> &gt; <em>DCL GitHub Document</em>.</li>
+</ul>
+<p>Our template is similar to the default GitHub document template, but:</p>
+<ul>
+<li>Includes a table of contents by default.</li>
+<li>Formats the first R chunk to highlight places for packages, parameters, and reading in code.</li>
+<li>Has example headers.</li>
+</ul>
+</div>
+<div id="make" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Make<a href="project-organization.html#make" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Imagine that <strong>birds.txt</strong>, our example raw data set, gets updated. Maybe the original owners added new birds or corrected a mistake. The cleaned birds data, <strong>birds.rds</strong>, depends on <strong>birds.txt</strong>, as do other data files, EDA documents, and reports.</p>
+<p>To update all these files, we could rerun all our scripts, then re-knit all our EDA files and reports. However, manually updating all our files can get tedious. It also requires remembering which files depend on each other, which can get complicated.</p>
+<p><em>Makefiles</em> are a better way to update files and keep track of dependencies. A program called Make reads your makefile, looks for changes in the files specifies, then rebuilds all files that depend on the ones that changed.</p>
+<p><a href="https://www.gnu.org/software/make/">GNU Make</a> is free software and comes installed on Macs and most Unix machines. If you’re a Windows user, you might need to install Make yourself.</p>
+<div id="create-a-makefile" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Create a makefile<a href="project-organization.html#create-a-makefile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>dcl::create_data_project()</code> creates a makefile template for you, but you’ll still need to fill in the details. We’ll use our <a href="https://github.com/dcl-docs/project-example/blob/master/Makefile">makefile</a> from the birds project as an example.</p>
+<p>Note that this section will be most informative if you have our makefile template in front of you and are ready to fill it in.</p>
+<p>If you want to learn more about makefiles, the <a href="https://www.gnu.org/software/make/manual/">GNU Make manual</a> is a good reference.</p>
+<div id="search-path" class="section level4 hasAnchor" number="7.4.1.1">
+<h4><span class="header-section-number">7.4.1.1</span> Search path<a href="project-organization.html#search-path" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Find the line that says</p>
+<p><code>VPATH =</code></p>
+<p>Add in the names of all the folders where Make should look for your files. This will probably be:</p>
+<p><code>VPATH = data data-raw eda reports scripts</code></p>
+</div>
+<div id="targets" class="section level4 hasAnchor" number="7.4.1.2">
+<h4><span class="header-section-number">7.4.1.2</span> Targets<a href="project-organization.html#targets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>all : $(DATA) $(EDA) $(REPORTS)</code> on line 14 defines a <em>target</em> called <code>all</code>. This tells Make to, by default, consider all the files defined by <code>DATA</code>, <code>EDA</code>, and <code>REPORTS</code>.</p>
+<p>For this to work, you’ll need to fill in the variables <code>DATA</code>, <code>EDA</code>, and <code>REPORTS</code> on lines 5-11 with the names of your files. For example, ours has</p>
+<pre><code># Processed data files
+DATA = birds.rds collisions.rds light_mp.rds bird_collisions_light.rds
+
+# EDA studies
+EDA = birds.md collisions.md light_mp.md bird_collisions_light.md
+
+# Reports
+REPORTS = report.md</code></pre>
+</div>
+<div id="dependencies" class="section level4 hasAnchor" number="7.4.1.3">
+<h4><span class="header-section-number">7.4.1.3</span> Dependencies<a href="project-organization.html#dependencies" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now, you need to specify the <em>dependencies</em> of your project. File A depends on File B if changing File B can change File A. For example, <strong>birds.md</strong> depends on <strong>birds.rds</strong> because changing the cleaned data in <strong>birds.rds</strong> could change the analysis, visualizations, etc. in <strong>birds.md</strong>.</p>
+<p>Underneath the comment that says, <code># Data dependencies</code>, you’ll specify which how the cleaned data (the .rds files) depend on the raw data. For example, here’s what we have in our birds makefile:</p>
+<pre><code>birds.rds : birds.txt
+collisions.rds : collisions.csv
+light_mp.rds : light_mp.csv
+bird_collisions_light.rds : birds.rds collisions.rds light_mp.rds</code></pre>
+<p>The syntax is:</p>
+<p><code>[target file] : [dependency file 1] [dependency file 2] [dependency file 3]</code></p>
+<p>Next, underneath the comment that says <code># EDA study and report dependencies</code>, specify how your knitted reports (your .md files) depend on the cleaned data.</p>
+<pre><code>birds.md : birds.rds
+collisions.md : collisions.rds
+light_mp.md : light_mp.rds
+bird_collisions_light.md : bird_collisions_light.rds
+report.md : bird_collisions_light.rds</code></pre>
+<p>Your files can have any number of dependencies, but make sure to separate the dependencies with a single space. If you need more than one line for your dependencies, end all lines except the last with a “\” .</p>
+</div>
+<div id="rules" class="section level4 hasAnchor" number="7.4.1.4">
+<h4><span class="header-section-number">7.4.1.4</span> Rules<a href="project-organization.html#rules" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Finally, Make needs to know how to update different types of files. We want Make to run a script if raw data changes, but knit an R Markdown document if cleaned data changes. Lines 30-33 define our rules.</p>
+<p>You probably won’t need to update these rules, but it’s useful to understand them.</p>
+<p>The first rule (lines 30-31) tells Make how to update a .rds file. For example, say <strong>birds.txt</strong> changes. Make knows that <strong>birds.rds</strong> depends on <strong>birds.txt</strong> because of our specified dependencies. Make then looks to our first rule to figure out how to update <strong>birds.rds</strong>. The rule says to run the R script with the same name as the .rds file. In our example, that script is <strong>birds.R</strong>, so Make will run <strong>birds.R</strong>.</p>
+<p>The second rule (32-33) tells Make how to update a .md file. The rule tells Make to knit the .Rmd version of the relevant .md file. For example, if <strong>birds.md</strong> needs updating (because <strong>birds.rds</strong> changed), Make will knit <strong>birds.Rmd</strong>.</p>
+</div>
+</div>
+<div id="run-make" class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Run Make<a href="project-organization.html#run-make" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once you’ve set up your makefile (and have the necessary files in place), navigate to your project directory from the command line. Then, type <code>make</code> and hit enter. Your scripts should run and your files should knit. After <code>make</code> is done, try running <code>make</code> again. You’ll get a message saying</p>
+<p><code>make: Nothing to be done for 'all'.</code></p>
+<p>because nothing has changed since the last time Make ran.</p>
+<p>Now, you can run <code>make</code> from the command line every time you want to rebuild your project, suspect something has changed, or have resumed work again. Your files will automatically be kept up to date.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="project-setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scripts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/dcl-docs/workflow/edit/master/project-organization.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
